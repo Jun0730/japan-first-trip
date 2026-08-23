@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContentCard from '../../components/ContentCard.astro';
+
+const esim = await getCollection('esim', ({ data }) => !data.draft);
+---
+
+<BaseLayout
+  title="Japan eSIM Guides"
+  description="Compare eSIM and mobile data options for Japan, picked for specific trip lengths and use cases rather than one generic 'best' pick."
+>
+  <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+    <h1 class="font-serif text-3xl font-bold text-indigo-950 sm:text-4xl">Japan eSIM</h1>
+    <p class="mt-3 max-w-2xl text-slate-600">
+      Which eSIM to buy depends on trip length and how much data you actually need — these guides are split by
+      use case instead of one generic ranking.
+    </p>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        esim.map((entry) => (
+          <ContentCard
+            href={`/esim/${entry.slug}/`}
+            title={entry.data.title}
+            description={entry.data.description}
+            gradient={entry.data.heroGradient}
+            badge={entry.data.useCase}
+          />
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>

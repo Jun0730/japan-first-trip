@@ -1,0 +1,64 @@
+---
+// Renders an outbound affiliate CTA with the rel attributes required by
+// Google's guidelines for paid/sponsored links (sponsored + nofollow via noopener/noreferrer
+// alone isn't enough for "sponsored", so we always include rel="sponsored").
+interface Props {
+  href: string;
+  provider:
+    | 'klook'
+    | 'viator'
+    | 'getyourguide'
+    | 'booking'
+    | 'agoda'
+    | 'airalo'
+    | 'ubigi'
+    | 'holafly'
+    | 'sakuramobile'
+    | 'japanwireless'
+    | 'jrpass'
+    | 'japanexperience'
+    | 'discovercars';
+  label?: string;
+  class?: string;
+}
+
+const PROVIDER_LABEL: Record<Props['provider'], string> = {
+  klook: 'Check availability on Klook',
+  viator: 'Check availability on Viator',
+  getyourguide: 'Check availability on GetYourGuide',
+  booking: 'Check rates on Booking.com',
+  agoda: 'Check rates on Agoda',
+  airalo: 'Get your eSIM on Airalo',
+  ubigi: 'Get your eSIM on Ubigi',
+  holafly: 'Get your eSIM on Holafly',
+  sakuramobile: 'Check plans on Sakura Mobile',
+  japanwireless: 'Check plans on Japan Wireless',
+  jrpass: 'Check pricing on JRPass.com',
+  japanexperience: 'Check pricing on Japan Experience',
+  discovercars: 'Compare rental cars on Discover Cars',
+};
+
+const { href, provider, label = PROVIDER_LABEL[provider], class: className = '' } = Astro.props;
+const isPlaceholder = href.includes('REPLACE_WITH_AFFILIATE_LINK');
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="sponsored noopener noreferrer"
+  class:list={[
+    'inline-flex items-center justify-center gap-2 rounded-full bg-sakura-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-sakura-500',
+    className,
+  ]}
+  data-affiliate-provider={provider}
+>
+  {label}
+  <span aria-hidden="true">&rarr;</span>
+</a>
+{
+  isPlaceholder && (
+    <p class="mt-1 text-xs font-medium text-red-600">
+      ⚠ Placeholder link — replace with a real {provider} affiliate URL before publishing.
+    </p>
+  )
+}

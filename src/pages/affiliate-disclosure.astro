@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<BaseLayout
+  title="Affiliate Disclosure"
+  description={`How ${SITE_TITLE} uses affiliate links and how that affects our recommendations.`}
+>
+  <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6">
+    <h1 class="font-serif text-3xl font-bold text-indigo-950">Affiliate Disclosure</h1>
+    <div class="prose mt-6">
+      <p>
+        {SITE_TITLE} participates in affiliate programs, including but not limited to Booking.com, Agoda,
+        Klook, Viator, GetYourGuide and Airalo. This means that if you click a link on this site and book a
+        hotel, tour, eSIM plan or transportation service, we may earn a commission. This comes at no additional
+        cost to you — the price you pay is the same whether you use our link or go directly to the provider.
+      </p>
+      <p>
+        We only recommend places and services we believe are genuinely useful for first-time visitors to
+        Japan. Affiliate relationships do not determine which guides we write or which recommendations we
+        make; they determine how we earn revenue from guides we'd write anyway.
+      </p>
+      <p>
+        Outbound links to booking partners on this site are marked as sponsored links in accordance with
+        search engine and advertising guidelines.
+      </p>
+      <p>
+        If you have questions about a specific recommendation or link, <a href="/contact/">contact us</a>.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

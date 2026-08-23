@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+// TODO: replace with your real contact address before publishing
+const CONTACT_EMAIL = 'hello@example-kansai-guide.com';
+---
+
+<BaseLayout title="Contact" description="Get in touch with questions, corrections or partnership inquiries.">
+  <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6">
+    <h1 class="font-serif text-3xl font-bold text-indigo-950">Contact</h1>
+    <div class="prose mt-6">
+      <p>
+        Spotted outdated information, have a question about planning your trip, or want to talk about a
+        partnership? Email us at
+        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+      </p>
+      <p>We read every message but can't guarantee personalized itinerary planning.</p>
+    </div>
+  </div>
+</BaseLayout>

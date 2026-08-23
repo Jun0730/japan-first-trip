@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContentCard from '../../components/ContentCard.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout
+  title="Blog"
+  description="Practical tips for first-time Japan travelers: passes, budgeting, packing, timing and more."
+>
+  <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+    <h1 class="font-serif text-3xl font-bold text-indigo-950 sm:text-4xl">Blog</h1>
+    <p class="mt-3 max-w-2xl text-slate-600">Planning notes and practical tips beyond the itineraries.</p>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        posts.map((entry) => (
+          <ContentCard
+            href={`/blog/${entry.slug}/`}
+            title={entry.data.title}
+            description={entry.data.description}
+            gradient={entry.data.heroGradient}
+          />
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,47 @@
+---
+import { SITE_TITLE, NAV_LINKS } from '../consts';
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-24 border-t border-slate-200 bg-indigo-950 text-slate-300">
+  <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+    <div class="grid gap-8 sm:grid-cols-3">
+      <div>
+        <p class="font-serif text-lg font-bold text-white">{SITE_TITLE}</p>
+        <p class="mt-2 text-sm text-slate-400">
+          Independent travel guides for first-timers exploring Kyoto, Osaka, Nara & Kobe.
+        </p>
+      </div>
+
+      <div>
+        <p class="text-sm font-semibold text-white">Explore</p>
+        <ul class="mt-2 space-y-1 text-sm">
+          {
+            NAV_LINKS.map((link) => (
+              <li>
+                <a href={link.href} class="hover:text-white">
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-sm font-semibold text-white">Site</p>
+        <ul class="mt-2 space-y-1 text-sm">
+          <li><a href="/about/" class="hover:text-white">About</a></li>
+          <li><a href="/contact/" class="hover:text-white">Contact</a></li>
+          <li><a href="/affiliate-disclosure/" class="hover:text-white">Affiliate Disclosure</a></li>
+          <li><a href="/privacy-policy/" class="hover:text-white">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="mt-10 border-t border-white/10 pt-6 text-xs text-slate-500">
+      &copy; {year} {SITE_TITLE}. This site contains affiliate links — see our
+      <a href="/affiliate-disclosure/" class="underline hover:text-slate-300">affiliate disclosure</a> for details.
+    </p>
+  </div>
+</footer>

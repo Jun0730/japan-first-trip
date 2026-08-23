@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-slate-800;
+}
+
+.prose {
+  @apply max-w-none text-slate-700;
+}
+.prose h2 {
+  @apply mt-10 mb-3 font-serif text-2xl font-bold text-indigo-950;
+}
+.prose h3 {
+  @apply mt-8 mb-2 font-serif text-xl font-bold text-indigo-950;
+}
+.prose p {
+  @apply mb-4 leading-relaxed;
+}
+.prose ul {
+  @apply mb-4 ml-5 list-disc space-y-1;
+}
+.prose ol {
+  @apply mb-4 ml-5 list-decimal space-y-1;
+}
+.prose a {
+  @apply text-sakura-600 underline underline-offset-2 hover:text-sakura-500;
+}
+.prose blockquote {
+  @apply border-l-4 border-sakura-200 pl-4 italic text-slate-600;
+}

@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContentCard from '../../components/ContentCard.astro';
+
+const itineraries = (await getCollection('itineraries', ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.days - b.data.days
+);
+---
+
+<BaseLayout
+  title="Japan Itineraries"
+  description="Sample day-by-day itineraries across Japan, built for first-time visitors."
+>
+  <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+    <h1 class="font-serif text-3xl font-bold text-indigo-950 sm:text-4xl">Itineraries</h1>
+    <p class="mt-3 max-w-2xl text-slate-600">
+      Ready-made routes you can copy as-is or tweak to fit your trip length and pace.
+    </p>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        itineraries.map((entry) => (
+          <ContentCard
+            href={`/itineraries/${entry.slug}/`}
+            title={entry.data.title}
+            description={entry.data.description}
+            gradient={entry.data.heroGradient}
+            badge={`${entry.data.days} days`}
+          />
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>

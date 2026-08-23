@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<BaseLayout title="About" description={`About ${SITE_TITLE} and who writes these guides.`}>
+  <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6">
+    <h1 class="font-serif text-3xl font-bold text-indigo-950">About {SITE_TITLE}</h1>
+    <div class="prose mt-6">
+      <p>
+        {SITE_TITLE} is an independent guide for people planning their first trip to Japan — eSIM and connectivity
+        picks, hotel and area guides, transportation help, and activities we think are genuinely worth booking
+        ahead, rather than another generic "top 10" list.
+      </p>
+      <p>
+        <!-- TODO: replace with your own bio / story once the site has a real author -->
+        This site is run by a small team of Japan travel enthusiasts. We update guides as things change and
+        welcome corrections — see the <a href="/contact/">contact page</a> to reach us.
+      </p>
+      <p>
+        Some links on this site are affiliate links, meaning we may earn a commission if you book through them,
+        at no extra cost to you. Full details are on our
+        <a href="/affiliate-disclosure/">affiliate disclosure</a> page. This never affects which places we
+        choose to recommend.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

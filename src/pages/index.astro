@@ -1,0 +1,160 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContentCard from '../components/ContentCard.astro';
+import { SITE_TITLE, SITE_TAGLINE, SITE_DESCRIPTION } from '../consts';
+
+const itineraries = (await getCollection('itineraries', ({ data }) => !data.draft)).slice(0, 3);
+const activities = (await getCollection('activities', ({ data }) => !data.draft)).slice(0, 3);
+const hotels = (await getCollection('hotels', ({ data }) => !data.draft)).slice(0, 2);
+const esim = (await getCollection('esim', ({ data }) => !data.draft)).slice(0, 3);
+const transportation = (await getCollection('transportation', ({ data }) => !data.draft)).slice(0, 3);
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <section class="bg-indigo-950 px-4 py-20 text-white sm:px-6">
+    <div class="mx-auto max-w-3xl text-center">
+      <h1 class="font-serif text-4xl font-bold sm:text-5xl">{SITE_TAGLINE}</h1>
+      <p class="mt-4 text-lg text-white/80">
+        eSIM, hotels, transportation and things to do — the practical decisions for a first trip to Japan,
+        without wading through generic "top 10" listicles to find them.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="/esim/" class="rounded-full bg-sakura-600 px-6 py-3 text-sm font-semibold hover:bg-sakura-500">
+          Find your eSIM
+        </a>
+        <a href="/where-to-stay/" class="rounded-full border border-white/30 px-6 py-3 text-sm font-semibold hover:bg-white/10">
+          Browse hotel guides
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <div class="mb-6 flex items-end justify-between">
+      <h2 class="font-serif text-2xl font-bold text-indigo-950">Japan eSIM</h2>
+      <a href="/esim/" class="text-sm font-medium text-sakura-600 hover:underline">View all &rarr;</a>
+    </div>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        esim.map((entry) => (
+          <ContentCard
+            href={`/esim/${entry.slug}/`}
+            title={entry.data.title}
+            description={entry.data.description}
+            gradient={entry.data.heroGradient}
+            badge={entry.data.useCase}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="bg-slate-50 px-4 py-16 sm:px-6">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-6 flex items-end justify-between">
+        <h2 class="font-serif text-2xl font-bold text-indigo-950">Transportation</h2>
+        <a href="/transportation/" class="text-sm font-medium text-sakura-600 hover:underline">View all &rarr;</a>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          transportation.map((entry) => (
+            <ContentCard
+              href={`/transportation/${entry.slug}/`}
+              title={entry.data.title}
+              description={entry.data.description}
+              gradient={entry.data.heroGradient}
+              badge={entry.data.transportType}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <div class="mb-6 flex items-end justify-between">
+      <h2 class="font-serif text-2xl font-bold text-indigo-950">Sample Itineraries</h2>
+      <a href="/itineraries/" class="text-sm font-medium text-sakura-600 hover:underline">View all &rarr;</a>
+    </div>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        itineraries.map((entry) => (
+          <ContentCard
+            href={`/itineraries/${entry.slug}/`}
+            title={entry.data.title}
+            description={entry.data.description}
+            gradient={entry.data.heroGradient}
+            badge={`${entry.data.days} days`}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="bg-slate-50 px-4 py-16 sm:px-6">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-6 flex items-end justify-between">
+        <h2 class="font-serif text-2xl font-bold text-indigo-950">Popular Things To Do</h2>
+        <a href="/things-to-do/" class="text-sm font-medium text-sakura-600 hover:underline">View all &rarr;</a>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          activities.map((entry) => (
+            <ContentCard
+              href={`/things-to-do/${entry.slug}/`}
+              title={entry.data.title}
+              description={entry.data.description}
+              gradient={entry.data.heroGradient}
+              badge={entry.data.location}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <div class="mb-6 flex items-end justify-between">
+      <h2 class="font-serif text-2xl font-bold text-indigo-950">Where To Stay</h2>
+      <a href="/where-to-stay/" class="text-sm font-medium text-sakura-600 hover:underline">View all &rarr;</a>
+    </div>
+    <div class="grid gap-6 sm:grid-cols-2">
+      {
+        hotels.map((entry) => (
+          <ContentCard
+            href={`/where-to-stay/${entry.slug}/`}
+            title={entry.data.title}
+            description={entry.data.description}
+            gradient={entry.data.heroGradient}
+            badge={entry.data.area}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="bg-slate-50 px-4 py-16 sm:px-6">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-6 flex items-end justify-between">
+        <h2 class="font-serif text-2xl font-bold text-indigo-950">From The Blog</h2>
+        <a href="/blog/" class="text-sm font-medium text-sakura-600 hover:underline">View all &rarr;</a>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          posts.map((entry) => (
+            <ContentCard
+              href={`/blog/${entry.slug}/`}
+              title={entry.data.title}
+              description={entry.data.description}
+              gradient={entry.data.heroGradient}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

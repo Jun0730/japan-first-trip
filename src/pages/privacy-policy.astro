@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE_TITLE } from '../consts';
+const CONTACT_EMAIL = 'hello@example-kansai-guide.com';
+const lastUpdated = 'July 2026';
+---
+
+<BaseLayout title="Privacy Policy" description={`Privacy policy for ${SITE_TITLE}.`}>
+  <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6">
+    <h1 class="font-serif text-3xl font-bold text-indigo-950">Privacy Policy</h1>
+    <p class="mt-2 text-sm text-slate-500">Last updated: {lastUpdated}</p>
+    <div class="prose mt-6">
+      <p>
+        <!-- TODO: have this reviewed by a professional before launch — this is a generic starting point,
+             not legal advice, and doesn't account for GDPR/CCPA specifics for your actual traffic mix. -->
+        This policy explains what information {SITE_TITLE} collects and how it's used.
+      </p>
+      <h2>Analytics</h2>
+      <p>
+        We may use Google Analytics to understand how visitors use this site (pages viewed, approximate
+        location, device type). This data is aggregated and not used to personally identify you.
+      </p>
+      <h2>Affiliate links</h2>
+      <p>
+        This site contains affiliate links to third-party booking platforms (see our
+        <a href="/affiliate-disclosure/">affiliate disclosure</a>). When you click these links, the
+        destination site's own privacy policy and cookie practices apply — we don't control what they collect.
+      </p>
+      <h2>Cookies</h2>
+      <p>
+        This site may use cookies for analytics and to support affiliate tracking. You can disable cookies in
+        your browser settings; some site features may not work as intended if you do.
+      </p>
+      <h2>Contact</h2>
+      <p>
+        Questions about this policy can be sent to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
