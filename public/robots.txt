@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.example-kansai-guide.com/sitemap-index.xml
+Sitemap: https://japan-first-trip.vercel.app/sitemap-index.xml
