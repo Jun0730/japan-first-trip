@@ -5,7 +5,7 @@ pubDate: 2026-06-17
 location: "Kyoto / Nara"
 category: "Day Trip"
 provider: "getyourguide"
-affiliateUrl: "https://www.getyourguide.com/REPLACE_WITH_AFFILIATE_LINK"
+affiliateUrl: "https://gyg.me/HWkvdCIp"
 priceHint: "Higher cost than doing it independently, but saves a full day of transit planning"
 heroGradient: ["#0f9b0f", "#3b8be6"]
 ---
