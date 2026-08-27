@@ -5,7 +5,7 @@ pubDate: 2026-08-25
 location: "Kyoto"
 category: "Culture"
 provider: "getyourguide"
-affiliateUrl: "https://www.getyourguide.com/REPLACE_WITH_AFFILIATE_LINK"
+affiliateUrl: "https://gyg.me/QD6JScIf"
 priceHint: "Basic packages cost less but usually charge extra for hair styling, accessories, and photo add-ons — check what's actually bundled before comparing prices"
 heroGradient: ["#e55d87", "#5fc3e4"]
 ---

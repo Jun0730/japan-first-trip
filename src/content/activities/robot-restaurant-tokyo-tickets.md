@@ -1,41 +1,48 @@
 ---
-title: "Robot Restaurant Tokyo: What to Know Before Booking"
-description: "What a robot cabaret show in Tokyo's Kabukicho district actually is, who it's for, and what to check before buying tickets."
+title: "Robot Restaurant Tokyo: It's Closed — Here's What Replaced It"
+description: "The original Shinjuku Robot Restaurant closed in 2020. Here's what actually happened, and the Samurai Restaurant show that replaced it in the same Kabukicho space."
 pubDate: 2026-08-25
 location: "Tokyo"
 category: "Entertainment"
 provider: "getyourguide"
-affiliateUrl: "https://www.getyourguide.com/REPLACE_WITH_AFFILIATE_LINK"
-priceHint: "Ticket-only admission costs less than packages bundling dinner or drinks — decide whether you want the meal included before comparing prices"
+affiliateUrl: "https://gyg.me/g6FEpYWJ"
+priceHint: "Ticket-only admission costs less than packages bundling drinks — decide what you want included before comparing prices"
 heroGradient: ["#8e0e00", "#1f1c18"]
 ---
 
-Tokyo's robot cabaret shows in Kabukicho are a loud, neon, deliberately over-the-top spectacle of dancers,
-lights, and giant robot props — not a restaurant serving a robot-prepared meal, despite the commonly used name.
-Worth knowing what you're actually booking before you go.
+If you're seeing "Robot Restaurant Tokyo" recommended somewhere and looking for tickets, it's worth knowing
+upfront: **the original Robot Restaurant permanently closed in March 2020** and has not reopened. Plenty of
+older travel articles and even some ticket-resale pages still reference it as if it's bookable — it isn't.
 
-## What the show actually is
+## What replaced it
 
-Expect a roughly 60-90 minute stage show combining dancers, taiko drumming, neon lighting, and large mechanical
-props, with minimal spoken dialogue (the show relies on visual spectacle rather than language, so it works fine
-for non-Japanese speakers). Food and drink service, where included, is generally basic — this is a show venue
-first, not a dining destination.
+In 2023, the same creators opened **Samurai Restaurant** in the same Kabukicho, Shinjuku area. It's a similarly
+loud, neon, over-the-top stage show with dancers, swordplay, and elaborate costumes — but it's noticeably less
+robot-focused than the original, and structured more around samurai/warrior theming.
+
+## The important difference: it's an adults-only venue
+
+Samurai Restaurant operates inside an adult entertainment venue (GiraGira), which makes it **18+ only** — a
+meaningful difference from the original Robot Restaurant, which was open to all ages and was a common
+family/group activity recommendation. If you were planning this as a family activity based on older
+information, this substitution won't work the same way; plan accordingly.
+
+## What the show is like
+
+Expect a roughly 60-90 minute stage show combining dancers, taiko drumming, neon lighting, and elaborate
+costumes/props, with minimal spoken dialogue (the show leans on visual spectacle, so it works regardless of
+language). Drink packages are typically sold separately from the base ticket — this is a show venue, not a
+dining destination, despite "restaurant" appearing in both names.
 
 ## What to check before booking
 
-- **Whether food/drinks are included or ticket-only** — packages vary, and the "restaurant" framing leads some
-  first-timers to expect a proper meal that isn't necessarily part of the base ticket.
-- **Show times and duration**, since there are usually multiple sessions per day and schedules can change.
-- **Seating**, if front-row or specific seating matters to you — some bookings offer seat selection, others are
-  general admission.
-
-## Who this suits
-
-If you want a purely visual, high-energy, slightly kitsch spectacle and understand it's a show rather than a
-dining experience, it delivers exactly that. If you're looking for a genuine dinner experience, this isn't
-really that — treat any food/drink inclusion as a bonus, not the main event.
+- **Confirm you're booking Samurai Restaurant specifically**, not an outdated "Robot Restaurant" listing that
+  may still circulate on some ticket resale sites.
+- **Age requirement (18+)** — confirm this works for your group before buying tickets.
+- **Whether drinks are included or ticket-only**, and current show times, since schedules can change.
 
 ## Bottom line
 
-Book this as a loud, visual stage show rather than a restaurant meal, and confirm what's actually included
-(food, drinks, seating) before comparing ticket prices across listings.
+The Robot Restaurant you may have read about elsewhere no longer exists. Its spiritual successor, Samurai
+Restaurant, occupies the same space and delivers a similar visual spectacle, but it's an 18+ venue — make sure
+that fits your group before booking.

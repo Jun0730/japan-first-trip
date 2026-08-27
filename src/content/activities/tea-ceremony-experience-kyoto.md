@@ -5,7 +5,7 @@ pubDate: 2026-08-25
 location: "Kyoto"
 category: "Culture"
 provider: "getyourguide"
-affiliateUrl: "https://www.getyourguide.com/REPLACE_WITH_AFFILIATE_LINK"
+affiliateUrl: "https://gyg.me/ropoz1R4"
 priceHint: "Shorter, more casual sessions are cheaper than longer formal ceremonies — check the session length against what you actually want from it"
 heroGradient: ["#134e5e", "#71b280"]
 ---

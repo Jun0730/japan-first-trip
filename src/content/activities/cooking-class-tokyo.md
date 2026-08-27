@@ -5,7 +5,7 @@ pubDate: 2026-08-25
 location: "Tokyo"
 category: "Food"
 provider: "getyourguide"
-affiliateUrl: "https://www.getyourguide.com/REPLACE_WITH_AFFILIATE_LINK"
+affiliateUrl: "https://gyg.me/J3N0RQgZ"
 priceHint: "Market-tour-plus-cooking combos cost more than a standalone class but usually run longer and include more hands-on content"
 heroGradient: ["#ff9966", "#ff5e62"]
 ---

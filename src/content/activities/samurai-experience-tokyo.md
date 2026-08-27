@@ -5,7 +5,7 @@ pubDate: 2026-08-25
 location: "Tokyo"
 category: "Culture"
 provider: "getyourguide"
-affiliateUrl: "https://www.getyourguide.com/REPLACE_WITH_AFFILIATE_LINK"
+affiliateUrl: "https://gyg.me/ZeMKNzkr"
 priceHint: "Group sessions are cheaper than private ones — group size affects how much individual instruction and photo time you actually get"
 heroGradient: ["#232526", "#414345"]
 ---

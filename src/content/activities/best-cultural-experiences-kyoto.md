@@ -5,7 +5,7 @@ pubDate: 2026-08-25
 location: "Kyoto"
 category: "Culture"
 provider: "getyourguide"
-affiliateUrl: "https://www.getyourguide.com/REPLACE_WITH_AFFILIATE_LINK"
+affiliateUrl: "https://gyg.me/euW5nm5E"
 priceHint: "Combining two shorter experiences in one day (e.g. tea ceremony plus kimono rental) is common and often cheaper than one long premium experience"
 heroGradient: ["#8e2de2", "#4a00e0"]
 ---
