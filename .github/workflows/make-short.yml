@@ -1,0 +1,59 @@
+name: ショート動画を作る
+
+on:
+  # Actions タブの「Run workflow」ボタンで実行
+  workflow_dispatch:
+    inputs:
+      script:
+        description: "作る台本（例: shorts-maker/scripts/001_switch2_accessories.yaml）。空なら全部作る"
+        required: false
+        default: ""
+  # 台本・画像・BGMを更新してコミットしたら自動で作る
+  push:
+    paths:
+      - "shorts-maker/**"
+      - ".github/workflows/make-short.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    services:
+      voicevox:
+        image: voicevox/voicevox_engine:cpu-latest
+        ports:
+          - 50021:50021
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: ffmpeg と日本語フォントを入れる
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q ffmpeg fonts-noto-cjk fonts-noto-cjk-extra
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Python ライブラリを入れる
+        run: pip install -r shorts-maker/requirements.txt
+
+      - name: VOICEVOX の起動を待つ
+        run: |
+          for i in $(seq 1 90); do
+            if curl -sf http://localhost:50021/version; then echo; echo "VOICEVOX OK"; exit 0; fi
+            sleep 2
+          done
+          echo "VOICEVOX が起動しませんでした"; exit 1
+
+      - name: 動画を作る
+        env:
+          SCRIPT: ${{ github.event.inputs.script }}
+        run: python shorts-maker/make_video.py ${SCRIPT:-shorts-maker/scripts/*.yaml} --out out
+
+      - name: 完成した動画をダウンロードできるようにする
+        uses: actions/upload-artifact@v4
+        with:
+          name: shorts-videos
+          path: out/
+          retention-days: 30
