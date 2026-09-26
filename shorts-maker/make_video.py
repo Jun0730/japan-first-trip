@@ -6,12 +6,18 @@
 
 読み上げは VOICEVOX エンジン（http://localhost:50021）を使う。
 GitHub Actions ではワークフローが自動で起動するので、何も準備しなくてよい。
+
+画面は3種類:
+  title  : 放射状の背景に大きなタイトル（白・赤・黄の文字）
+  rank   : 上に「順位＋名前」、その下に説明の枠（青枠→紫枠の順に出る）、下に画像
+  ending : 放射状の背景に大きな白文字
 """
 
 import argparse
 import glob
 import io
 import json
+import math
 import os
 import shutil
 import subprocess
@@ -22,45 +28,47 @@ import urllib.request
 import wave
 
 import yaml
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 W, H = 1080, 1920
 FPS = 30
 SAMPLE_RATE = 24000
-LINE_GAP = 0.15   # 字幕と字幕の間の無音（秒）
+LINE_GAP = 0.15   # ナレーションとナレーションの間の無音（秒）
 SCENE_GAP = 0.35  # シーンとシーンの間の無音（秒）
 
-# 色
-BG_TOP = (14, 17, 38)
-BG_BOTTOM = (38, 20, 70)
-YELLOW = (255, 214, 10)
-WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
-RANK_COLORS = {1: (230, 40, 60), 2: (140, 150, 170), 3: (205, 127, 50)}
-RANK_DEFAULT = (60, 120, 230)
+# ───────────── 見た目の設定 ─────────────
 
-FONT_CANDIDATES = [
-    os.environ.get("FONT_PATH", ""),
-    "/usr/share/fonts/opentype/noto/NotoSansCJK-Black.ttc",
-    "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc",
-    "/usr/share/fonts/noto-cjk/NotoSansCJK-Bold.ttc",
-    "/System/Library/Fonts/ヒラギノ角ゴシック W8.ttc",
-    "C:/Windows/Fonts/meiryob.ttc",
-    "/usr/share/fonts/truetype/fonts-japanese-gothic.ttf",
-    "/usr/share/fonts/opentype/ipafont-gothic/ipag.ttf",
-]
-FONT_PATH = next((p for p in FONT_CANDIDATES if p and os.path.exists(p)), None)
-if FONT_PATH is None:
-    sys.exit("日本語フォントが見つかりません。環境変数 FONT_PATH にフォントのパスを指定してください。")
+RAY_YELLOW = (255, 230, 0)
+RAY_ORANGE = (255, 171, 1)
+RAY_COUNT = 14                # オレンジの光線の本数
+RAY_CENTER = (W // 2, int(H * 0.49))
+BOX_BORDERS = [(24, 24, 200), (176, 0, 200), (0, 150, 60), (220, 90, 0)]  # 枠の色（1つ目・2つ目…）
+
+# 文字のスタイル: (上の色, 下の色) のグラデーション
+STYLES = {
+    "white": ((255, 255, 255), (255, 255, 255)),
+    "red": ((235, 20, 20), (95, 0, 0)),
+    "yellow": ((255, 250, 90), (240, 190, 0)),
+}
+
+DISPLAY_FONT = os.path.join(HERE, "fonts", "MPLUSRounded1c-Black.ttf")  # タイトル・順位・締め
+BOX_FONT = os.path.join(HERE, "fonts", "NotoSansJP-Black.ttf")          # 枠の中の文字
+# fonts/ に display.ttf / box.ttf を置くと、そのフォントに差し替わる
+for _name, _var in (("display", "DISPLAY_FONT"), ("box", "BOX_FONT")):
+    for _ext in (".ttf", ".otf", ".ttc"):
+        _p = os.path.join(HERE, "fonts", _name + _ext)
+        if os.path.exists(_p):
+            globals()[_var] = _p
 
 _font_cache = {}
 
 
-def font(size):
-    if size not in _font_cache:
-        _font_cache[size] = ImageFont.truetype(FONT_PATH, size)
-    return _font_cache[size]
+def font(path, size):
+    key = (path, size)
+    if key not in _font_cache:
+        _font_cache[key] = ImageFont.truetype(path, size)
+    return _font_cache[key]
 
 
 # ───────────── 読み上げ ─────────────
@@ -99,155 +107,213 @@ def silence(seconds):
     return b"\x00\x00" * int(seconds * SAMPLE_RATE)
 
 
-# ───────────── 描画 ─────────────
-
-NO_LINE_START = set("、。，．・！？!?）」』】ー～…ぁぃぅぇぉっゃゅょァィゥェォッャュョ")
-
-
-def wrap(text, fnt, max_width):
-    """日本語を1文字ずつ折り返す（行頭に句読点が来ないようにする）。"""
-    lines, cur = [], ""
-    for ch in text:
-        if fnt.getlength(cur + ch) <= max_width or not cur:
-            cur += ch
-        elif ch in NO_LINE_START:
-            cur += ch
-        else:
-            lines.append(cur)
-            cur = ch
-    if cur:
-        lines.append(cur)
-    return lines
-
-
-def fit_font(text, max_width, start, minimum, max_lines=1):
-    size = start
-    while size > minimum:
-        if len(wrap(text, font(size), max_width)) <= max_lines:
-            break
-        size -= 4
-    return font(size)
-
-
-def draw_text_block(d, text, fnt, center_x, top, fill, stroke, stroke_width, max_width, line_gap=1.18):
-    y = top
-    for line in wrap(text, fnt, max_width):
-        d.text((center_x, y), line, font=fnt, fill=fill, anchor="ma",
-               stroke_width=stroke_width, stroke_fill=stroke)
-        y += int(fnt.size * line_gap)
-    return y
-
+# ───────────── 描画の部品 ─────────────
 
 _background = None
 
 
-def background():
+def sunburst():
+    """黄色とオレンジの放射状の背景。"""
     global _background
     if _background is None:
-        img = Image.new("RGBA", (W, H))
+        img = Image.new("RGB", (W, H), RAY_YELLOW)
         d = ImageDraw.Draw(img)
-        for y in range(H):
-            t = y / H
-            c = tuple(int(BG_TOP[i] * (1 - t) + BG_BOTTOM[i] * t) for i in range(3))
-            d.line([(0, y), (W, y)], fill=c)
-        # うっすら斜めのライン模様
-        overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-        od = ImageDraw.Draw(overlay)
-        for x in range(-H, W, 90):
-            od.line([(x, H), (x + H, 0)], fill=(255, 255, 255, 14), width=3)
-        _background = Image.alpha_composite(img, overlay)
+        cx, cy = RAY_CENTER
+        r = math.hypot(W, H)
+        step = 2 * math.pi / RAY_COUNT
+        for i in range(RAY_COUNT):
+            a0 = i * step - math.pi / 2
+            a1 = a0 + step / 2
+            d.polygon([(cx, cy),
+                       (cx + r * math.cos(a0), cy + r * math.sin(a0)),
+                       (cx + r * math.cos(a1), cy + r * math.sin(a1))], fill=RAY_ORANGE)
+        _background = img.convert("RGBA")
     return _background.copy()
 
 
-def draw_title(img, title):
-    """タイトルを描く。【】の部分は黄色。「|」を入れた所で改行する。"""
-    d = ImageDraw.Draw(img)
-    if "】" in title:
-        head, rest = title.split("】", 1)
-        head += "】"
+def text_layer(text, fnt, style="white", tracking=-0.04, squeeze=1.0, outline="auto"):
+    """縁取り・グラデーション・影つきの文字を1枚の透過画像にして返す。
+
+    white : 白文字＋太い黒縁＋影
+    red / yellow : グラデーション文字＋細い白縁＋黒いぼかし縁
+    """
+    size = fnt.size
+    pad = int(size * 0.35)
+    # 1文字ずつ置いて字間を詰める
+    advances = [fnt.getlength(ch) for ch in text]
+    track = size * tracking
+    width = int(sum(advances) + track * (len(text) - 1)) + pad * 2
+    height = int(size * 1.35) + pad * 2
+    mask = Image.new("L", (width, height), 0)
+    md = ImageDraw.Draw(mask)
+    x = pad
+    for ch, adv in zip(text, advances):
+        md.text((x, pad), ch, font=fnt, fill=255)
+        x += adv + track
+
+    def grow(m, px):
+        return m.filter(ImageFilter.MaxFilter(px * 2 + 1)) if px > 0 else m
+
+    layer = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    if style == "white":
+        black = grow(mask, max(2, int(size * 0.085)) // 1)
+        shadow = black.filter(ImageFilter.GaussianBlur(size * 0.06))
+        layer.paste((0, 0, 0, 170), (int(size * 0.05), int(size * 0.06)), shadow)
+        layer.paste((0, 0, 0, 255), (0, 0), black)
+        layer.paste((255, 255, 255, 255), (0, 0), mask)
     else:
-        head, rest = "", title
-    y = 150
-    if head:
-        f = fit_font(head, 980, 84, 48)
-        d.text((W // 2, y), head, font=f, fill=YELLOW, anchor="ma", stroke_width=8, stroke_fill=BLACK)
-        y += int(f.size * 1.25)
-    parts = [p for p in rest.split("|") if p]
-    size = min(fit_font(p, 1000, 80, 52, max_lines=2 if len(parts) == 1 else 1).size for p in parts)
-    for part in parts:
-        y = draw_text_block(d, part, font(size), W // 2, y, WHITE, BLACK, 8, 1000)
+        white = grow(mask, max(2, int(size * 0.04)))
+        glow = grow(white, max(2, int(size * 0.05))).filter(ImageFilter.GaussianBlur(size * 0.06))
+        layer.paste((0, 0, 0, 230), (0, 0), glow)
+        layer.paste((255, 255, 255, 255), (0, 0), white)
+        top, bottom = STYLES[style]
+        grad = Image.new("RGBA", (1, height))
+        for y in range(height):
+            t = min(1, max(0, (y - pad) / (size * 1.1)))
+            grad.putpixel((0, y), tuple(int(top[i] * (1 - t) + bottom[i] * t) for i in range(3)) + (255,))
+        layer.paste(grad.resize((width, height)), (0, 0), mask)
+    if squeeze != 1.0:
+        layer = layer.resize((int(width * squeeze), height), Image.LANCZOS)
+    bbox = layer.getbbox()
+    return layer.crop(bbox) if bbox else layer
+
+
+def fitted_layer(text, font_path, max_width, max_size, min_size=40, **kw):
+    """幅に収まる一番大きいサイズで文字を作る。"""
+    size = max_size
+    while True:
+        layer = text_layer(text, font(font_path, size), **kw)
+        if layer.width <= max_width or size <= min_size:
+            return layer
+        size = max(min_size, int(size * max_width / layer.width) - 2)
+
+
+def paste_center(img, layer, center_x, top):
+    img.alpha_composite(layer, (int(center_x - layer.width / 2), int(top)))
+
+
+def load_image(scene, image_dir):
+    name = scene.get("image") or ""
+    path = os.path.join(image_dir, name) if name else ""
+    return Image.open(path).convert("RGBA") if path and os.path.exists(path) else None
 
 
 def draw_pr_badge(img):
     d = ImageDraw.Draw(img)
-    d.rounded_rectangle([40, 50, 150, 110], radius=12, fill=(255, 255, 255, 235))
-    d.text((95, 80), "PR", font=font(40), fill=(20, 20, 20), anchor="mm")
+    d.rounded_rectangle([40, 150, 130, 200], radius=10, fill=(255, 255, 255, 235),
+                        outline=(0, 0, 0), width=3)
+    d.text((85, 175), "PR", font=font(BOX_FONT, 30), fill=(20, 20, 20), anchor="mm")
 
 
-def draw_card(img, scene, image_dir):
-    """中央のカード。画像があれば画像、なければ見出し＋一言。"""
-    box = (70, 700, W - 70, 1230)
-    d = ImageDraw.Draw(img)
-    rank = scene.get("rank")
+# ───────────── 画面 ─────────────
 
-    # ランクと見出し（カードの上）
-    if rank:
-        color = RANK_COLORS.get(rank, RANK_DEFAULT)
-        label = f"第{rank}位"
-        f = font(92)
-        tw = f.getlength(label)
-        d.rounded_rectangle([W // 2 - tw / 2 - 40, 500, W // 2 + tw / 2 + 40, 630], radius=30, fill=color)
-        d.text((W // 2, 565), label, font=f, fill=WHITE, anchor="mm", stroke_width=4, stroke_fill=BLACK)
-
-    image_file = scene.get("image") or ""
-    path = os.path.join(image_dir, image_file) if image_file else ""
-    if path and os.path.exists(path):
-        src = Image.open(path).convert("RGB")
-        bw, bh = box[2] - box[0], box[3] - box[1]
-        scale = min(bw / src.width, bh / src.height)
-        src = src.resize((int(src.width * scale), int(src.height * scale)), Image.LANCZOS)
-        d.rounded_rectangle(box, radius=36, fill=(255, 255, 255))
-        img.paste(src, (box[0] + (bw - src.width) // 2, box[1] + (bh - src.height) // 2))
-        # 画像の下に商品名
-        f = fit_font(scene.get("heading", ""), 940, 56, 36)
-        d.text((W // 2, box[3] + 20), scene.get("heading", ""), font=f, fill=WHITE, anchor="ma",
-               stroke_width=6, stroke_fill=BLACK)
-        return
-
-    d.rounded_rectangle(box, radius=36, fill=(255, 255, 255, 240))
-    heading = scene.get("heading", "")
-    point = scene.get("point", "")
-    hf = fit_font(heading, 880, 110, 56, max_lines=2)
-    h_lines = wrap(heading, hf, 880)
-    pf = fit_font(point, 860, 64, 40, max_lines=2) if point else None
-    p_lines = wrap(point, pf, 860) if point else []
-    content_h = len(h_lines) * int(hf.size * 1.18) + (30 + len(p_lines) * int(pf.size * 1.3) if point else 0)
-    y = box[1] + (box[3] - box[1] - content_h) // 2
-    y = draw_text_block(d, heading, hf, W // 2, y, (25, 25, 45), None, 0, 880)
-    if point:
-        y += 30
-        # 黄色マーカー風の下線
-        for line in p_lines:
-            lw = pf.getlength(line)
-            d.rectangle([W // 2 - lw / 2 - 10, y + pf.size * 0.62, W // 2 + lw / 2 + 10, y + pf.size * 1.12],
-                        fill=YELLOW)
-            d.text((W // 2, y), line, font=pf, fill=(200, 30, 50), anchor="ma")
-            y += int(pf.size * 1.3)
+def render_big_lines(lines, image=None):
+    """タイトル・締めの画面。行ごとに文字の大きさを幅いっぱいに合わせる。"""
+    img = sunburst()
+    layers = []
+    for line in lines:
+        if isinstance(line, str):
+            line = {"text": line}
+        layers.append(fitted_layer(line["text"], DISPLAY_FONT, 1000, line.get("size", 190),
+                                   style=line.get("style", "white"), tracking=-0.06))
+    gap = 28
+    area_top, area_bottom = 250, (1250 if image else 1700)
+    total = sum(l.height for l in layers) + gap * (len(layers) - 1)
+    scale = min(1.0, (area_bottom - area_top) / total)
+    if scale < 1.0:
+        layers = [l.resize((int(l.width * scale), int(l.height * scale)), Image.LANCZOS) for l in layers]
+        total = sum(l.height for l in layers) + gap * (len(layers) - 1)
+    y = area_top + (area_bottom - area_top - total) / 2
+    for layer in layers:
+        paste_center(img, layer, W / 2, y)
+        y += layer.height + gap
+    if image:
+        max_w, max_h = 1000, H - 1300
+        s = min(max_w / image.width, max_h / image.height)
+        pic = image.resize((int(image.width * s), int(image.height * s)), Image.LANCZOS)
+        img.alpha_composite(pic, ((W - pic.width) // 2, H - pic.height - 20))
+    return img
 
 
-def draw_subtitle(img, text):
-    d = ImageDraw.Draw(img)
-    f = fit_font(text, 980, 70, 54, max_lines=3)
-    draw_text_block(d, text, f, W // 2, 1300, WHITE, BLACK, 10, 980, line_gap=1.22)
+def box_layer(text, border):
+    """白い四角に色つきの枠。「|」で改行、文字は左ぞろえ。"""
+    fnt = font(BOX_FONT, 80)
+    lines = text.split("|")
+    while max(fnt.getlength(l) for l in lines) > 900 and fnt.size > 44:
+        fnt = font(BOX_FONT, fnt.size - 4)
+    pad_x, pad_y, line_h, bw = 26, 14, int(fnt.size * 1.3), 9
+    width = int(max(fnt.getlength(l) for l in lines)) + pad_x * 2 + bw * 2
+    height = line_h * len(lines) + pad_y * 2 + bw * 2
+    layer = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    d.rectangle([0, 0, width - 1, height - 1], fill=border)
+    d.rectangle([bw, bw, width - bw - 1, height - bw - 1], fill=(255, 255, 255))
+    y = bw + pad_y
+    for line in lines:
+        d.text((bw + pad_x, y + line_h / 2), line, font=fnt, fill=(0, 0, 0), anchor="lm")
+        y += line_h
+    return layer
 
 
-def render_frame(title, scene, line_text, image_dir):
-    img = background()
-    draw_pr_badge(img)
-    draw_title(img, title)
-    draw_card(img, scene, image_dir)
-    draw_subtitle(img, line_text)
-    return img.convert("RGB")
+def render_rank(scene, visible_boxes, image):
+    img = sunburst()
+    header = f"{to_zenkaku(scene['rank'])}{scene['name']}"
+    head = fitted_layer(header, DISPLAY_FONT, 960, 104, style="red", tracking=-0.02)
+    paste_center(img, head, W / 2, 230)
+
+    boxes = [box_layer(b["text"], BOX_BORDERS[i % len(BOX_BORDERS)])
+             for i, b in enumerate(scene.get("boxes", [])[:visible_boxes])]
+    box_top = 230 + head.height + 36
+
+    # 画像は枠の後ろ（枠が少し重なる）
+    if image:
+        max_w, max_h = 640, H - 900
+        s = min(max_w / image.width, max_h / image.height)
+        pic = image.resize((int(image.width * s), int(image.height * s)), Image.LANCZOS)
+        img.alpha_composite(pic, ((W - pic.width) // 2, H - pic.height))
+    else:
+        # 画像がない時は名前を大きく出す
+        name = fitted_layer(scene["name"], DISPLAY_FONT, 980, 170, style="red", tracking=-0.04)
+        paste_center(img, name, W / 2, 1250 - name.height / 2)
+
+    y = box_top
+    for layer in boxes:
+        img.alpha_composite(layer, (70, int(y)))
+        y += layer.height + 26
+    return img
+
+
+def to_zenkaku(n):
+    return str(n).translate(str.maketrans("0123456789", "０１２３４５６７８９"))
+
+
+# ───────────── 台本 → 画面とナレーションの並び ─────────────
+
+def rank_yomi(scene):
+    kanji = "〇一二三四五六七八九十"
+    r = scene["rank"]
+    num = kanji[r] if r <= 10 else str(r)
+    return f"第{num}位、{scene.get('name_yomi') or scene['name']}"
+
+
+def timeline(script, image_dir):
+    """(画面を作る関数, 読み上げる文, シーンの最後か) を順番に返す。"""
+    for scene in script["scenes"]:
+        kind = scene.get("type", "rank" if "rank" in scene else "title")
+        image = load_image(scene, image_dir)
+        if kind == "rank":
+            items = [(lambda s=scene, im=image: render_rank(s, 0, im), rank_yomi(scene))]
+            for i, box in enumerate(scene.get("boxes", [])):
+                yomi = box.get("yomi") or box["text"].replace("|", "")
+                items.append((lambda s=scene, n=i + 1, im=image: render_rank(s, n, im), yomi))
+        else:
+            narration = scene.get("narration") or ["".join(
+                (l if isinstance(l, str) else l["text"]) for l in scene["lines"])]
+            if isinstance(narration, str):
+                narration = [narration]
+            items = [(lambda s=scene, im=image: render_big_lines(s["lines"], im), n) for n in narration]
+        for i, (render, text) in enumerate(items):
+            yield scene, render, text, i == len(items) - 1
 
 
 # ───────────── 動画を組み立てる ─────────────
@@ -273,12 +339,12 @@ def find_bgm(script):
 
 
 def write_caption(script, out_txt):
-    lines = [script["title"].replace("|", ""), "", "※本動画はアフィリエイト広告（PR）を含みます", ""]
+    lines = [script["title"], "", "※本動画はアフィリエイト広告（PR）を含みます", ""]
     ranked = sorted([s for s in script["scenes"] if s.get("rank")], key=lambda s: s["rank"])
     if ranked:
         lines.append("▼紹介した商品")
         for s in ranked:
-            lines.append(f"{s['rank']}位 {s['heading']}")
+            lines.append(f"{s['rank']}位 {s['name']}")
             lines.append(f"  {s.get('link') or '（リンクをここに貼る）'}")
         lines.append("")
     if script.get("credit"):
@@ -302,25 +368,17 @@ def build(script_path, out_dir, cfg):
     work = tempfile.mkdtemp(prefix=f"{name}_")
     audio = bytearray()
     concat = []
-    thumb = None
-    n = 0
-    total_lines = sum(len(s["lines"]) for s in script["scenes"])
-    for si, scene in enumerate(script["scenes"]):
-        for li, line in enumerate(scene["lines"]):
-            text = line["text"] if isinstance(line, dict) else str(line)
-            yomi = (line.get("yomi") if isinstance(line, dict) else None) or text
-            n += 1
-            print(f"  [{n}/{total_lines}] {text}", flush=True)
-            pcm = tts(yomi, cfg)
-            last_in_scene = li == len(scene["lines"]) - 1
-            pcm += silence(SCENE_GAP if last_in_scene else LINE_GAP)
-            audio += pcm
-            seconds = len(pcm) / 2 / SAMPLE_RATE
-            frame = os.path.join(work, f"{n:03d}.png")
-            render_frame(script["title"], scene, text, image_dir).save(frame)
-            concat.append((frame, seconds))
-            if scene.get("rank") == 1 and thumb is None:
-                thumb = frame
+    items = list(timeline(script, image_dir))
+    for n, (scene, render, text, last_in_scene) in enumerate(items, 1):
+        print(f"  [{n}/{len(items)}] {text}", flush=True)
+        pcm = tts(text, cfg) + silence(SCENE_GAP if last_in_scene else LINE_GAP)
+        audio += pcm
+        frame = os.path.join(work, f"{n:03d}.png")
+        img = render()
+        if script.get("pr", True):
+            draw_pr_badge(img)
+        img.convert("RGB").save(frame)
+        concat.append((frame, len(pcm) / 2 / SAMPLE_RATE))
 
     wav_path = os.path.join(work, "voice.wav")
     with wave.open(wav_path, "wb") as w:
@@ -352,8 +410,8 @@ def build(script_path, out_dir, cfg):
             "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-shortest", "-movflags", "+faststart", out_mp4]
     subprocess.run(cmd, check=True)
 
-    # サムネイル用に1位のシーン（なければ最初）の画像も書き出す
-    shutil.copy(thumb or concat[0][0], os.path.join(out_dir, f"{name}_thumb.png"))
+    # サムネイル用にタイトル画面を書き出す
+    shutil.copy(concat[0][0], os.path.join(out_dir, f"{name}_thumb.png"))
     write_caption(script, os.path.join(out_dir, f"{name}.txt"))
     shutil.rmtree(work, ignore_errors=True)
 

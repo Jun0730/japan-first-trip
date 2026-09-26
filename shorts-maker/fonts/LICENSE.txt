@@ -1,0 +1,5 @@
+MPLUSRounded1c-Black.ttf : M PLUS Rounded 1c (Copyright The M+ FONTS Project Authors)
+NotoSansJP-Black.ttf     : Noto Sans JP (Copyright The Noto Project Authors)
+
+Both fonts are licensed under the SIL Open Font License, Version 1.1.
+https://openfontlicense.org
