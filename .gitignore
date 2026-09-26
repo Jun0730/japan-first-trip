@@ -19,3 +19,4 @@ npm-debug.log*
 
 # shorts-maker output
 out/
+__pycache__/
