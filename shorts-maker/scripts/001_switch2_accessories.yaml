@@ -15,6 +15,10 @@
 # 投稿するときのタイトル（概要欄テキストにも入る）
 title: Switch2買ったら…一緒に買わないと後悔する周辺機器５選！！
 
+# BGM（shorts-maker/bgm/ の曲）とクレジット（概要欄に入る）
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: "BGM：おどれグロッケンシュピール / しゃろう"
+
 scenes:
   - type: title
     image: ""
