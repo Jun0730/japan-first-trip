@@ -8,8 +8,8 @@
 GitHub Actions ではワークフローが自動で起動するので、何も準備しなくてよい。
 
 画面は3種類:
-  title  : 放射状の背景に大きなタイトル（白・赤・黄の文字）
-  rank   : 上に「順位＋名前」、その下に説明の枠（青枠→紫枠の順に出る）、下に画像
+  title  : 放射状の背景に大きなタイトル（白・赤・黄の文字）、下にイラスト
+  rank   : 上に「番号＋名前」、その下に説明の枠（青→紫→緑→赤の枠が1つずつ出る）、下に画像
   ending : 放射状の背景に大きな白文字
 """
 
@@ -39,16 +39,28 @@ SCENE_GAP = 0.35  # シーンとシーンの間の無音（秒）
 
 # ───────────── 見た目の設定 ─────────────
 
-RAY_YELLOW = (255, 230, 0)
-RAY_ORANGE = (255, 171, 1)
-RAY_COUNT = 14                # オレンジの光線の本数
-RAY_CENTER = (W // 2, int(H * 0.49))
-BOX_BORDERS = [(24, 24, 200), (176, 0, 200), (0, 150, 60), (220, 90, 0)]  # 枠の色（1つ目・2つ目…）
+RAY_YELLOW = (255, 226, 0)
+RAY_ORANGE = (255, 171, 0)
+RAY_COUNT = 12                # オレンジの光線の本数
+RAY_WIDTH = 0.45              # オレンジの光線の太さ（1本ぶんの角度に対する割合）
+RAY_CENTER = (W // 2, 945)
+# 枠の色。台本で color を書かなければ 青→紫→緑→赤 の順に使う
+BOX_COLORS = {
+    "blue": (0, 0, 255),
+    "purple": (220, 0, 255),
+    "green": (60, 255, 0),
+    "red": (255, 0, 0),
+}
+BOX_ORDER = ["blue", "purple", "green", "red"]
+BOX_LEFT = 78          # 枠の左端
+BOX_GAP = 18           # 枠と枠のすきま
+BOX_PAGE_BOTTOM = 1300  # 枠がここより下にはみ出す時は、枠を消して上から並べ直す
+POP_STEPS = [(0.5, 0.1), (0.8, 0.1)]  # 見出しがポンと出る動き: (大きさ, 秒) の順に表示してから等倍
 
 # 文字のスタイル: (上の色, 下の色) のグラデーション
 STYLES = {
     "white": ((255, 255, 255), (255, 255, 255)),
-    "red": ((235, 20, 20), (95, 0, 0)),
+    "red": ((240, 20, 20), (70, 0, 0)),
     "yellow": ((255, 250, 90), (240, 190, 0)),
 }
 
@@ -122,8 +134,8 @@ def sunburst():
         r = math.hypot(W, H)
         step = 2 * math.pi / RAY_COUNT
         for i in range(RAY_COUNT):
-            a0 = i * step - math.pi / 2
-            a1 = a0 + step / 2
+            mid = i * step + math.radians(2)
+            a0, a1 = mid - step * RAY_WIDTH / 2, mid + step * RAY_WIDTH / 2
             d.polygon([(cx, cy),
                        (cx + r * math.cos(a0), cy + r * math.sin(a0)),
                        (cx + r * math.cos(a1), cy + r * math.sin(a1))], fill=RAY_ORANGE)
@@ -162,9 +174,9 @@ def text_layer(text, fnt, style="white", tracking=-0.04, squeeze=1.0, outline="a
         layer.paste((0, 0, 0, 255), (0, 0), black)
         layer.paste((255, 255, 255, 255), (0, 0), mask)
     else:
-        white = grow(mask, max(2, int(size * 0.04)))
-        glow = grow(white, max(2, int(size * 0.05))).filter(ImageFilter.GaussianBlur(size * 0.06))
-        layer.paste((0, 0, 0, 230), (0, 0), glow)
+        white = grow(mask, max(2, int(size * 0.055)))
+        glow = grow(white, max(2, int(size * 0.07))).filter(ImageFilter.GaussianBlur(size * 0.08))
+        layer.paste((0, 0, 0, 255), (0, 0), glow)
         layer.paste((255, 255, 255, 255), (0, 0), white)
         top, bottom = STYLES[style]
         grad = Image.new("RGBA", (1, height))
@@ -207,31 +219,68 @@ def draw_pr_badge(img):
 
 # ───────────── 画面 ─────────────
 
-def render_big_lines(lines, image=None):
-    """タイトル・締めの画面。行ごとに文字の大きさを幅いっぱいに合わせる。"""
+def scaled(layer, k):
+    """文字を k 倍に縮める（k が 1 以上ならそのまま）。"""
+    if k >= 1.0:
+        return layer
+    return layer.resize((max(1, int(layer.width * k)), max(1, int(layer.height * k))), Image.LANCZOS)
+
+
+def paste_scaled(img, layer, center_x, top, k):
+    """等倍の時と同じ中心に、k 倍に縮めた文字を置く（ポンと出る動き用）。"""
+    small = scaled(layer, k)
+    img.alpha_composite(small, (int(center_x - small.width / 2),
+                                int(top + (layer.height - small.height) / 2)))
+
+
+def paste_bottom(img, image, max_w, max_h, margin, max_area=None):
+    """画像を下ぞろえ・左右中央に置く。max_area を渡すと面積（ピクセル数）もそこまでにする。"""
+    s = min(max_w / image.width, max_h / image.height)
+    if max_area:
+        s = min(s, math.sqrt(max_area / (image.width * image.height)))
+    pic = image.resize((int(image.width * s), int(image.height * s)), Image.LANCZOS)
+    img.alpha_composite(pic, ((W - pic.width) // 2, H - margin - pic.height))
+
+
+def render_title(lines, image=None, pop=1.0):
+    """タイトル画面。行ごとに文字の大きさを幅いっぱいに合わせる。下にイラスト。"""
     img = sunburst()
+    if image:
+        paste_bottom(img, image, 1060, 430, 28)
     layers = []
     for line in lines:
         if isinstance(line, str):
             line = {"text": line}
-        layers.append(fitted_layer(line["text"], DISPLAY_FONT, 1000, line.get("size", 190),
+        layers.append(fitted_layer(line["text"], DISPLAY_FONT, 1040, line.get("size", 190),
                                    style=line.get("style", "white"), tracking=-0.06))
-    gap = 28
-    area_top, area_bottom = 250, (1250 if image else 1700)
+    gap = 18
+    area_top, area_bottom = 300, (1340 if image else 1700)
     total = sum(l.height for l in layers) + gap * (len(layers) - 1)
     scale = min(1.0, (area_bottom - area_top) / total)
     if scale < 1.0:
-        layers = [l.resize((int(l.width * scale), int(l.height * scale)), Image.LANCZOS) for l in layers]
+        layers = [scaled(l, scale) for l in layers]
         total = sum(l.height for l in layers) + gap * (len(layers) - 1)
     y = area_top + (area_bottom - area_top - total) / 2
     for layer in layers:
-        paste_center(img, layer, W / 2, y)
+        paste_scaled(img, layer, W / 2, y, pop)
         y += layer.height + gap
-    if image:
-        max_w, max_h = 1000, H - 1300
-        s = min(max_w / image.width, max_h / image.height)
-        pic = image.resize((int(image.width * s), int(image.height * s)), Image.LANCZOS)
-        img.alpha_composite(pic, ((W - pic.width) // 2, H - pic.height - 20))
+    return img
+
+
+def render_ending(lines):
+    """締めの画面。全部の行を同じ大きさの白文字で、真ん中よりやや上に並べる。"""
+    img = sunburst()
+    texts = [l if isinstance(l, str) else l["text"] for l in lines]
+    size = 150
+    while True:
+        layers = [text_layer(t, font(DISPLAY_FONT, size), style="white", tracking=-0.06) for t in texts]
+        pitch = int(size * 1.53)
+        if (max(l.width for l in layers) <= 1000 and pitch * len(layers) <= 1700) or size <= 60:
+            break
+        size -= 6
+    top = 885 - pitch * len(layers) / 2
+    for i, layer in enumerate(layers):
+        paste_center(img, layer, W / 2, top + i * pitch + (pitch - layer.height) / 2)
     return img
 
 
@@ -239,9 +288,9 @@ def box_layer(text, border):
     """白い四角に色つきの枠。「|」で改行、文字は左ぞろえ。"""
     fnt = font(BOX_FONT, 80)
     lines = text.split("|")
-    while max(fnt.getlength(l) for l in lines) > 900 and fnt.size > 44:
-        fnt = font(BOX_FONT, fnt.size - 4)
-    pad_x, pad_y, line_h, bw = 26, 14, int(fnt.size * 1.3), 9
+    while max(fnt.getlength(l) for l in lines) > 880 and fnt.size > 44:
+        fnt = font(BOX_FONT, fnt.size - 2)
+    pad_x, pad_y, line_h, bw = 20, 4, int(fnt.size * 1.47), 9
     width = int(max(fnt.getlength(l) for l in lines)) + pad_x * 2 + bw * 2
     height = line_h * len(lines) + pad_y * 2 + bw * 2
     layer = Image.new("RGBA", (width, height), (0, 0, 0, 0))
@@ -255,65 +304,95 @@ def box_layer(text, border):
     return layer
 
 
-def render_rank(scene, visible_boxes, image):
+def rank_label(rank, name):
+    """名前が日本語なら全角数字、英字なら半角数字＋スペース（例: 「１メタル…」「3 FRONT…」）。"""
+    if name[:1].isascii():
+        return f"{rank} "
+    return str(rank).translate(str.maketrans("0123456789", "０１２３４５６７８９"))
+
+
+def header_layers(scene):
+    """「番号＋名前」の見出し。名前に「|」を入れると2行に分かれる。"""
+    parts = scene["name"].split("|")
+    parts[0] = rank_label(scene["rank"], parts[0]) + parts[0]
+    return [fitted_layer(p, DISPLAY_FONT, 1000, 96, style="red", tracking=-0.14) for p in parts]
+
+
+def box_pages(scene, box_top):
+    """枠を画面ごとに分ける。枠に page: true を書くか、下にはみ出しそうな時に並べ直す。"""
+    pages, y = [], box_top
+    for i, box in enumerate(scene.get("boxes", [])):
+        layer = box_layer(box["text"], BOX_COLORS[box.get("color") or BOX_ORDER[i % len(BOX_ORDER)]])
+        if not pages or (pages[-1] and (box.get("page") or y + layer.height > BOX_PAGE_BOTTOM)):
+            pages.append([])
+            y = box_top
+        pages[-1].append((layer, y))
+        y += layer.height + BOX_GAP
+    return pages
+
+
+def render_rank(scene, visible_boxes, image, pop=1.0):
     img = sunburst()
-    header = f"{to_zenkaku(scene['rank'])}{scene['name']}"
-    head = fitted_layer(header, DISPLAY_FONT, 960, 104, style="red", tracking=-0.02)
-    paste_center(img, head, W / 2, 230)
+    heads = header_layers(scene)
 
-    boxes = [box_layer(b["text"], BOX_BORDERS[i % len(BOX_BORDERS)])
-             for i, b in enumerate(scene.get("boxes", [])[:visible_boxes])]
-    box_top = 230 + head.height + 36
+    # 画像は枠の後ろ（枠が重なってもよい）。見出しが出きってから表示する
+    if pop >= 1.0:
+        if image:
+            paste_bottom(img, image, 900, 1080, 15, max_area=520_000)
+        else:
+            # 画像がない時は名前を大きく出す
+            name = fitted_layer(scene["name"].replace("|", ""), DISPLAY_FONT, 980, 170,
+                                style="red", tracking=-0.04)
+            paste_center(img, name, W / 2, 1450 - name.height / 2)
 
-    # 画像は枠の後ろ（枠が少し重なる）
-    if image:
-        max_w, max_h = 640, H - 900
-        s = min(max_w / image.width, max_h / image.height)
-        pic = image.resize((int(image.width * s), int(image.height * s)), Image.LANCZOS)
-        img.alpha_composite(pic, ((W - pic.width) // 2, H - pic.height))
-    else:
-        # 画像がない時は名前を大きく出す
-        name = fitted_layer(scene["name"], DISPLAY_FONT, 980, 170, style="red", tracking=-0.04)
-        paste_center(img, name, W / 2, 1250 - name.height / 2)
+    y = 212
+    for head in heads:
+        paste_scaled(img, head, W / 2, y, pop)
+        y += head.height
 
-    y = box_top
-    for layer in boxes:
-        img.alpha_composite(layer, (70, int(y)))
-        y += layer.height + 26
+    # 今の画面の枠だけを表示（前の画面の枠は消える）
+    shown = 0
+    for page in box_pages(scene, y + 30):
+        if shown + len(page) >= visible_boxes:
+            for layer, top in page[:visible_boxes - shown]:
+                img.alpha_composite(layer, (BOX_LEFT, int(top)))
+            break
+        shown += len(page)
     return img
-
-
-def to_zenkaku(n):
-    return str(n).translate(str.maketrans("0123456789", "０１２３４５６７８９"))
 
 
 # ───────────── 台本 → 画面とナレーションの並び ─────────────
 
-def rank_yomi(scene):
-    kanji = "〇一二三四五六七八九十"
-    r = scene["rank"]
-    num = kanji[r] if r <= 10 else str(r)
-    return f"第{num}位、{scene.get('name_yomi') or scene['name']}"
+def rank_yomi(scene, script):
+    template = script.get("rank_yomi", "{n}、{name}")
+    return template.format(n=scene["rank"], name=scene.get("name_yomi") or scene["name"].replace("|", ""))
 
 
 def timeline(script, image_dir):
-    """(画面を作る関数, 読み上げる文, シーンの最後か) を順番に返す。"""
+    """(シーン, 画面を作る関数, 読み上げる文, シーンの最後か, 見出しをポンと出すか) を順番に返す。
+
+    画面を作る関数は pop（文字の大きさ 0〜1）を受け取る。
+    """
     for scene in script["scenes"]:
         kind = scene.get("type", "rank" if "rank" in scene else "title")
         image = load_image(scene, image_dir)
         if kind == "rank":
-            items = [(lambda s=scene, im=image: render_rank(s, 0, im), rank_yomi(scene))]
+            items = [(lambda pop=1.0, s=scene, im=image: render_rank(s, 0, im, pop), rank_yomi(scene, script))]
             for i, box in enumerate(scene.get("boxes", [])):
                 yomi = box.get("yomi") or box["text"].replace("|", "")
-                items.append((lambda s=scene, n=i + 1, im=image: render_rank(s, n, im), yomi))
+                items.append((lambda pop=1.0, s=scene, n=i + 1, im=image: render_rank(s, n, im, pop), yomi))
         else:
             narration = scene.get("narration") or ["".join(
                 (l if isinstance(l, str) else l["text"]) for l in scene["lines"])]
             if isinstance(narration, str):
                 narration = [narration]
-            items = [(lambda s=scene, im=image: render_big_lines(s["lines"], im), n) for n in narration]
+            if kind == "ending":
+                render = lambda pop=1.0, s=scene: render_ending(s["lines"])
+            else:
+                render = lambda pop=1.0, s=scene, im=image: render_title(s["lines"], im, pop)
+            items = [(render, n) for n in narration]
         for i, (render, text) in enumerate(items):
-            yield scene, render, text, i == len(items) - 1
+            yield scene, render, text, i == len(items) - 1, i == 0 and kind != "ending"
 
 
 # ───────────── 動画を組み立てる ─────────────
@@ -369,16 +448,22 @@ def build(script_path, out_dir, cfg):
     audio = bytearray()
     concat = []
     items = list(timeline(script, image_dir))
-    for n, (scene, render, text, last_in_scene) in enumerate(items, 1):
+    thumb = None
+    for n, (scene, render, text, last_in_scene, pop) in enumerate(items, 1):
         print(f"  [{n}/{len(items)}] {text}", flush=True)
         pcm = tts(text, cfg) + silence(SCENE_GAP if last_in_scene else LINE_GAP)
         audio += pcm
-        frame = os.path.join(work, f"{n:03d}.png")
-        img = render()
-        if script.get("pr", True):
-            draw_pr_badge(img)
-        img.convert("RGB").save(frame)
-        concat.append((frame, len(pcm) / 2 / SAMPLE_RATE))
+        seconds = len(pcm) / 2 / SAMPLE_RATE
+        # 見出しは小さい→大きいと数コマ見せてから等倍にする（合計の長さは音声と同じ）
+        steps = POP_STEPS if pop else []
+        for k, (size, dur) in enumerate(steps + [(1.0, seconds - sum(d for _, d in steps))]):
+            frame = os.path.join(work, f"{n:03d}_{k}.png")
+            img = render(size)
+            if script.get("pr", True):
+                draw_pr_badge(img)
+            img.convert("RGB").save(frame)
+            concat.append((frame, dur))
+        thumb = thumb or frame
 
     wav_path = os.path.join(work, "voice.wav")
     with wave.open(wav_path, "wb") as w:
@@ -411,7 +496,7 @@ def build(script_path, out_dir, cfg):
     subprocess.run(cmd, check=True)
 
     # サムネイル用にタイトル画面を書き出す
-    shutil.copy(concat[0][0], os.path.join(out_dir, f"{name}_thumb.png"))
+    shutil.copy(thumb, os.path.join(out_dir, f"{name}_thumb.png"))
     write_caption(script, os.path.join(out_dir, f"{name}.txt"))
     shutil.rmtree(work, ignore_errors=True)
 
