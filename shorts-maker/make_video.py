@@ -543,6 +543,18 @@ def write_background(work, spin):
     return os.path.join(work, "bg_%03d.png")
 
 
+def affiliate_link(link, script):
+    """楽天の商品ページのURLを、自分のアフィリエイトリンクにする。
+
+    台本の rakuten_affiliate_id（または環境変数 RAKUTEN_AFFILIATE_ID）がある時だけ。
+    """
+    aff = script.get("rakuten_affiliate_id") or os.environ.get("RAKUTEN_AFFILIATE_ID")
+    if not (aff and link and link.startswith("https://item.rakuten.co.jp/")):
+        return link
+    q = urllib.parse.quote(link, safe="")
+    return f"https://hb.afl.rakuten.co.jp/hgc/{aff}/?pc={q}&m={q}"
+
+
 def write_caption(script, out_txt):
     lines = [script["title"], "", "※本動画はアフィリエイト広告（PR）を含みます", ""]
     ranked = sorted([s for s in script["scenes"] if s.get("rank")], key=lambda s: s["rank"])
@@ -550,7 +562,7 @@ def write_caption(script, out_txt):
         lines.append("▼紹介した商品")
         for s in ranked:
             lines.append(f"{s['rank']}位 {s['name'].replace('|', '')}")
-            lines.append(f"  {s.get('link') or '（リンクをここに貼る）'}")
+            lines.append(f"  {affiliate_link(s.get('link'), script) or '（リンクをここに貼る）'}")
         lines.append("")
     for key in ("credit", "bgm_credit"):
         if script.get(key):
