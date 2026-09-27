@@ -552,7 +552,7 @@ def affiliate_link(link, script):
     if not (aff and link and link.startswith("https://item.rakuten.co.jp/")):
         return link
     q = urllib.parse.quote(link, safe="")
-    return f"https://hb.afl.rakuten.co.jp/hgc/{aff}/?pc={q}&m={q}"
+    return f"https://hb.afl.rakuten.co.jp/ichiba/{aff}/?pc={q}&link_type=hybrid_url"
 
 
 def write_caption(script, out_txt):

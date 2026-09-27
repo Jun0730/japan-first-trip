@@ -20,7 +20,7 @@ bgm: おどれグロッケンシュピール.mp3
 bgm_credit: "BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）"
 
 # 楽天アフィリエイトID。書くと、楽天の商品ページの link が自動でアフィリエイトリンクになる
-# rakuten_affiliate_id: xxxxxxxx.xxxxxxxx.xxxxxxxx.xxxxxxxx
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
 
 scenes:
   - type: title
