@@ -23,6 +23,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import urllib.error
 import urllib.parse
 import urllib.request
 import wave
@@ -56,6 +57,10 @@ BOX_LEFT = 78          # 枠の左端
 BOX_GAP = 18           # 枠と枠のすきま
 BOX_PAGE_BOTTOM = 1300  # 枠がここより下にはみ出す時は、枠を消して上から並べ直す
 POP_STEPS = [(0.5, 0.1), (0.8, 0.1)]  # 見出しがポンと出る動き: (大きさ, 秒) の順に表示してから等倍
+SPIN = 10               # 背景が回る速さ（度/秒）。台本の spin で変えられる。0 で止まる、マイナスで逆回り
+BGM_VOLUME = 0.12       # BGM の音量（台本の bgm_volume で変えられる）
+BGM_FADE = (0.5, 2.0)   # BGM のフェードイン・フェードアウト（秒）
+RAKUTEN_API = "https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701"
 
 # 文字のスタイル: (上の色, 下の色) のグラデーション
 STYLES = {
@@ -109,6 +114,15 @@ def tts_voicevox(text, cfg):
         return w.readframes(w.getnframes())
 
 
+def voicevox_names(cfg):
+    """話者ID → キャラクター名 の表（クレジット用）。取れなければ空。"""
+    try:
+        with urllib.request.urlopen(cfg["voicevox_url"].rstrip("/") + "/speakers", timeout=30) as r:
+            return {st["id"]: sp["name"] for sp in json.load(r) for st in sp["styles"]}
+    except Exception:
+        return {}
+
+
 def tts_silent(text, cfg):
     # 見た目の確認用。1文字あたり約0.12秒の無音を返す
     seconds = max(1.2, len(text) * 0.12 / cfg["speed"])
@@ -121,26 +135,29 @@ def silence(seconds):
 
 # ───────────── 描画の部品 ─────────────
 
-_background = None
+def sunburst(angle=0.0):
+    """黄色とオレンジの放射状の背景。angle（度）だけ回した絵を返す。
+
+    縁がギザギザしないよう、2倍の大きさで描いてから縮める。
+    """
+    k = 2
+    img = Image.new("RGB", (W * k, H * k), RAY_YELLOW)
+    d = ImageDraw.Draw(img)
+    cx, cy = RAY_CENTER[0] * k, RAY_CENTER[1] * k
+    r = math.hypot(W, H) * k
+    step = 2 * math.pi / RAY_COUNT
+    for i in range(RAY_COUNT):
+        mid = i * step + math.radians(2 + angle)
+        a0, a1 = mid - step * RAY_WIDTH / 2, mid + step * RAY_WIDTH / 2
+        d.polygon([(cx, cy),
+                   (cx + r * math.cos(a0), cy + r * math.sin(a0)),
+                   (cx + r * math.cos(a1), cy + r * math.sin(a1))], fill=RAY_ORANGE)
+    return img.resize((W, H), Image.LANCZOS).convert("RGBA")
 
 
-def sunburst():
-    """黄色とオレンジの放射状の背景。"""
-    global _background
-    if _background is None:
-        img = Image.new("RGB", (W, H), RAY_YELLOW)
-        d = ImageDraw.Draw(img)
-        cx, cy = RAY_CENTER
-        r = math.hypot(W, H)
-        step = 2 * math.pi / RAY_COUNT
-        for i in range(RAY_COUNT):
-            mid = i * step + math.radians(2)
-            a0, a1 = mid - step * RAY_WIDTH / 2, mid + step * RAY_WIDTH / 2
-            d.polygon([(cx, cy),
-                       (cx + r * math.cos(a0), cy + r * math.sin(a0)),
-                       (cx + r * math.cos(a1), cy + r * math.sin(a1))], fill=RAY_ORANGE)
-        _background = img.convert("RGBA")
-    return _background.copy()
+def canvas():
+    """文字や画像を描く透明な画面。背景はあとで動画にするときに下に敷く。"""
+    return Image.new("RGBA", (W, H), (0, 0, 0, 0))
 
 
 def text_layer(text, fnt, style="white", tracking=-0.04, squeeze=1.0, outline="auto"):
@@ -204,10 +221,85 @@ def paste_center(img, layer, center_x, top):
     img.alpha_composite(layer, (int(center_x - layer.width / 2), int(top)))
 
 
+def fetch(url, timeout=60, headers=None):
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (shorts-maker)", **(headers or {})})
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        return r.read()
+
+
+def rakuten_search(keyword):
+    """楽天市場の商品検索APIで一番上の商品を探す。(画像URLの候補, アフィリエイトURL) を返す。
+
+    環境変数（GitHub では Secrets）:
+      RAKUTEN_APP_ID       アプリID（必須）
+      RAKUTEN_ACCESS_KEY   アクセスキー（必須）
+      RAKUTEN_AFFILIATE_ID アフィリエイトID（あれば link にアフィリエイトURLが入る）
+      RAKUTEN_ORIGIN       アプリ登録で入れたサイトのURL（403 になる時に必要）
+    """
+    env = os.environ
+    if not (env.get("RAKUTEN_APP_ID") and env.get("RAKUTEN_ACCESS_KEY")):
+        print("    ※ image_search には RAKUTEN_APP_ID と RAKUTEN_ACCESS_KEY の設定が必要です（README 参照）")
+        return None, None
+    params = {"applicationId": env["RAKUTEN_APP_ID"], "accessKey": env["RAKUTEN_ACCESS_KEY"],
+              "keyword": keyword, "hits": 1, "imageFlag": 1, "format": "json"}
+    if env.get("RAKUTEN_AFFILIATE_ID"):
+        params["affiliateId"] = env["RAKUTEN_AFFILIATE_ID"]
+    headers = {"accessKey": env["RAKUTEN_ACCESS_KEY"]}
+    if env.get("RAKUTEN_ORIGIN"):
+        origin = env["RAKUTEN_ORIGIN"].rstrip("/")
+        headers.update({"Origin": origin, "Referer": origin + "/"})
+    try:
+        items = json.loads(fetch(RAKUTEN_API + "?" + urllib.parse.urlencode(params), headers=headers))["Items"]
+    except urllib.error.HTTPError as e:
+        print(f"    ※ 楽天の検索に失敗しました（{keyword}）: {e} {e.read()[:200].decode(errors='ignore')}")
+        return None, None
+    except Exception as e:
+        print(f"    ※ 楽天の検索に失敗しました（{keyword}）: {e}")
+        return None, None
+    if not items:
+        print(f"    ※ 楽天で商品が見つかりませんでした: {keyword}")
+        return None, None
+    item = items[0].get("Item", items[0])
+    small = item["mediumImageUrls"][0]
+    small = small["imageUrl"] if isinstance(small, dict) else small
+    print(f"    楽天の商品: {item['itemName'][:40]}")
+    # APIの画像は128px。URLの _ex を変えると大きい画像が取れるので、まずそちらを試す
+    big = small.replace("_ex=128x128", "_ex=600x600")
+    return [big, small] if big != small else [small], item.get("affiliateUrl") or item.get("itemUrl")
+
+
 def load_image(scene, image_dir):
+    """シーンの画像を読み込む。
+
+    image        : images/ に置いたファイル名、または画像のURL
+    image_search : 楽天市場で探すキーワード（image がない時だけ使う）。link が空ならリンクも入れる
+    """
     name = scene.get("image") or ""
-    path = os.path.join(image_dir, name) if name else ""
-    return Image.open(path).convert("RGBA") if path and os.path.exists(path) else None
+    if not name and scene.get("image_search"):
+        urls, link = rakuten_search(scene["image_search"])
+        if link and not scene.get("link"):
+            scene["link"] = link
+        for url in urls or []:
+            try:
+                return Image.open(io.BytesIO(fetch(url))).convert("RGBA")
+            except Exception as e:
+                print(f"    ※ 楽天の画像を取れませんでした（{url}）: {e}")
+        return None
+    if not name:
+        return None
+    try:
+        if name.startswith(("http://", "https://")):
+            data = fetch(name)
+        else:
+            path = os.path.join(image_dir, name)
+            if not os.path.exists(path):
+                print(f"    ※ 画像が見つかりません: images/{name}")
+                return None
+            data = open(path, "rb").read()
+        return Image.open(io.BytesIO(data)).convert("RGBA")
+    except Exception as e:
+        print(f"    ※ 画像を読み込めませんでした（{name}）: {e}")
+        return None
 
 
 def draw_pr_badge(img):
@@ -244,7 +336,7 @@ def paste_bottom(img, image, max_w, max_h, margin, max_area=None):
 
 def render_title(lines, image=None, pop=1.0):
     """タイトル画面。行ごとに文字の大きさを幅いっぱいに合わせる。下にイラスト。"""
-    img = sunburst()
+    img = canvas()
     if image:
         paste_bottom(img, image, 1060, 430, 28)
     layers = []
@@ -269,7 +361,7 @@ def render_title(lines, image=None, pop=1.0):
 
 def render_ending(lines):
     """締めの画面。全部の行を同じ大きさの白文字で、真ん中よりやや上に並べる。"""
-    img = sunburst()
+    img = canvas()
     texts = [l if isinstance(l, str) else l["text"] for l in lines]
     size = 150
     while True:
@@ -332,7 +424,7 @@ def box_pages(scene, box_top):
 
 
 def render_rank(scene, visible_boxes, image, pop=1.0):
-    img = sunburst()
+    img = canvas()
     heads = header_layers(scene)
 
     # 画像は枠の後ろ（枠が重なってもよい）。見出しが出きってから表示する
@@ -368,31 +460,49 @@ def rank_yomi(scene, script):
     return template.format(n=scene["rank"], name=scene.get("name_yomi") or scene["name"].replace("|", ""))
 
 
-def timeline(script, image_dir):
-    """(シーン, 画面を作る関数, 読み上げる文, シーンの最後か, 見出しをポンと出すか) を順番に返す。
+def voice_of(*sources):
+    """読み上げの声。枠 → シーン → 台本 の順に、先に書いてある speaker / speed を使う。"""
+    voice = {}
+    for src in sources:
+        for key in ("speaker", "speed"):
+            if isinstance(src, dict) and key in src and key not in voice:
+                voice[key] = src[key]
+    return voice
 
-    画面を作る関数は pop（文字の大きさ 0〜1）を受け取る。
+
+def timeline(script, image_dir):
+    """画面とナレーションを順番に返す。1つずつ次の内容の dict:
+
+    render : 画面を作る関数（pop = 文字の大きさ 0〜1 を受け取る）
+    text   : 読み上げる文
+    voice  : {"speaker": 話者ID, "speed": 速さ}（書いてないものは入らない）
+    last   : シーンの最後か
+    pop    : 見出しをポンと出すか
     """
     for scene in script["scenes"]:
         kind = scene.get("type", "rank" if "rank" in scene else "title")
         image = load_image(scene, image_dir)
         if kind == "rank":
-            items = [(lambda pop=1.0, s=scene, im=image: render_rank(s, 0, im, pop), rank_yomi(scene, script))]
+            head = {"text": rank_yomi(scene, script)}
+            if "name_speaker" in scene:
+                head["speaker"] = scene["name_speaker"]
+            items = [(lambda pop=1.0, s=scene, im=image: render_rank(s, 0, im, pop), head)]
             for i, box in enumerate(scene.get("boxes", [])):
-                yomi = box.get("yomi") or box["text"].replace("|", "")
-                items.append((lambda pop=1.0, s=scene, n=i + 1, im=image: render_rank(s, n, im, pop), yomi))
+                line = {**box, "text": box.get("yomi") or box["text"].replace("|", "")}
+                items.append((lambda pop=1.0, s=scene, n=i + 1, im=image: render_rank(s, n, im, pop), line))
         else:
             narration = scene.get("narration") or ["".join(
                 (l if isinstance(l, str) else l["text"]) for l in scene["lines"])]
-            if isinstance(narration, str):
+            if isinstance(narration, (str, dict)):
                 narration = [narration]
             if kind == "ending":
                 render = lambda pop=1.0, s=scene: render_ending(s["lines"])
             else:
                 render = lambda pop=1.0, s=scene, im=image: render_title(s["lines"], im, pop)
-            items = [(render, n) for n in narration]
-        for i, (render, text) in enumerate(items):
-            yield scene, render, text, i == len(items) - 1, i == 0 and kind != "ending"
+            items = [(render, n if isinstance(n, dict) else {"text": n}) for n in narration]
+        for i, (render, line) in enumerate(items):
+            yield {"render": render, "text": line["text"], "voice": voice_of(line, scene, script),
+                   "last": i == len(items) - 1, "pop": i == 0 and kind != "ending"}
 
 
 # ───────────── 動画を組み立てる ─────────────
@@ -409,12 +519,28 @@ def ffmpeg_bin():
 
 
 def find_bgm(script):
+    """BGM のファイル。台本の bgm にファイル名、なければ bgm/ の最初の1つ。bgm: none で無し。"""
     name = script.get("bgm")
+    if name in ("none", False):
+        return None
     if name:
         path = os.path.join(HERE, "bgm", name)
-        return path if os.path.exists(path) else None
-    files = sorted(glob.glob(os.path.join(HERE, "bgm", "*.mp3")) + glob.glob(os.path.join(HERE, "bgm", "*.wav")))
+        if not os.path.exists(path):
+            print(f"  ※ BGM が見つかりません: bgm/{name}")
+            return None
+        return path
+    files = sorted(f for ext in ("mp3", "wav", "m4a", "ogg") for f in glob.glob(os.path.join(HERE, "bgm", "*." + ext)))
     return files[0] if files else None
+
+
+def write_background(work, spin):
+    """回る背景を連番画像にする。光線は同じ形のくり返しなので、1本ぶん回るところまで作ってループさせる。"""
+    period = 360 / RAY_COUNT
+    frames = 1 if not spin else max(1, round(FPS * period / abs(spin)))
+    step = 0 if not spin else math.copysign(period / frames, spin)
+    for i in range(frames):
+        sunburst(i * step).convert("RGB").save(os.path.join(work, f"bg_{i:03d}.png"))
+    return os.path.join(work, "bg_%03d.png")
 
 
 def write_caption(script, out_txt):
@@ -423,11 +549,14 @@ def write_caption(script, out_txt):
     if ranked:
         lines.append("▼紹介した商品")
         for s in ranked:
-            lines.append(f"{s['rank']}位 {s['name']}")
+            lines.append(f"{s['rank']}位 {s['name'].replace('|', '')}")
             lines.append(f"  {s.get('link') or '（リンクをここに貼る）'}")
         lines.append("")
-    if script.get("credit"):
-        lines += [script["credit"], ""]
+    for key in ("credit", "bgm_credit"):
+        if script.get(key):
+            lines.append(script[key])
+    if script.get("credit") or script.get("bgm_credit"):
+        lines.append("")
     lines.append(" ".join(script.get("hashtags", [])))
     with open(out_txt, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
@@ -439,31 +568,43 @@ def build(script_path, out_dir, cfg):
     name = os.path.splitext(os.path.basename(script_path))[0]
     image_dir = os.path.join(HERE, "images")
     tts = tts_voicevox if cfg["tts"] == "voicevox" else tts_silent
-    cfg = {**cfg, "speaker": script.get("speaker", cfg["speaker"]), "speed": script.get("speed", cfg["speed"])}
-    if cfg["tts"] == "voicevox" and "credit" not in script:
-        script["credit"] = f"音声：VOICEVOX:{cfg['speaker_name']}"
 
     os.makedirs(out_dir, exist_ok=True)
     work = tempfile.mkdtemp(prefix=f"{name}_")
     audio = bytearray()
     concat = []
     items = list(timeline(script, image_dir))
+    speakers = []
     thumb = None
-    for n, (scene, render, text, last_in_scene, pop) in enumerate(items, 1):
-        print(f"  [{n}/{len(items)}] {text}", flush=True)
-        pcm = tts(text, cfg) + silence(SCENE_GAP if last_in_scene else LINE_GAP)
+    for n, item in enumerate(items, 1):
+        voice = {"speaker": cfg["speaker"], "speed": cfg["speed"], **item["voice"]}
+        if voice["speaker"] not in speakers:
+            speakers.append(voice["speaker"])
+        print(f"  [{n}/{len(items)}] ({voice['speaker']}) {item['text']}", flush=True)
+        pcm = tts(item["text"], {**cfg, **voice}) + silence(SCENE_GAP if item["last"] else LINE_GAP)
         audio += pcm
         seconds = len(pcm) / 2 / SAMPLE_RATE
         # 見出しは小さい→大きいと数コマ見せてから等倍にする（合計の長さは音声と同じ）
-        steps = POP_STEPS if pop else []
+        steps = POP_STEPS if item["pop"] else []
         for k, (size, dur) in enumerate(steps + [(1.0, seconds - sum(d for _, d in steps))]):
             frame = os.path.join(work, f"{n:03d}_{k}.png")
-            img = render(size)
+            img = item["render"](size)
             if script.get("pr", True):
                 draw_pr_badge(img)
-            img.convert("RGB").save(frame)
+            img.save(frame)
             concat.append((frame, dur))
         thumb = thumb or frame
+
+    # クレジット: 使った声を全部書く
+    if cfg["tts"] == "voicevox" and "credit" not in script:
+        names = voicevox_names(cfg)
+        default = {cfg["speaker"]: cfg["speaker_name"]}
+        chars = []
+        for sp in speakers:
+            ch = names.get(sp) or default.get(sp) or f"話者{sp}"
+            if ch not in chars:
+                chars.append(ch)
+        script["credit"] = "音声：" + "、".join(f"VOICEVOX:{c}" for c in chars)
 
     wav_path = os.path.join(work, "voice.wav")
     with wave.open(wav_path, "wb") as w:
@@ -478,29 +619,41 @@ def build(script_path, out_dir, cfg):
             f.write(f"file '{frame}'\nduration {seconds:.3f}\n")
         f.write(f"file '{concat[-1][0]}'\n")  # concat の仕様で最後のフレームをもう一度書く
 
+    total = sum(s for _, s in concat)
+    spin = script.get("spin", SPIN)
+    bg_pattern = write_background(work, spin)
+
+    # 入力: 0=文字や画像（透明）, 1=背景（ループ）, 2=声, 3=BGM
     out_mp4 = os.path.join(out_dir, f"{name}.mp4")
     cmd = [ffmpeg_bin(), "-y", "-loglevel", "error",
            "-f", "concat", "-safe", "0", "-i", list_path,
+           "-stream_loop", "-1", "-framerate", str(FPS), "-i", bg_pattern,
            "-i", wav_path]
+    video = (f"[1:v]fps={FPS},format=rgba[bg];[0:v]fps={FPS},format=rgba[fg];"
+             f"[bg][fg]overlay=format=auto,format=yuv420p[v]")
     bgm = find_bgm(script)
     if bgm:
-        vol = script.get("bgm_volume", 0.12)
-        cmd += ["-stream_loop", "-1", "-i", bgm,
-                "-filter_complex",
-                f"[2:a]volume={vol}[b];[1:a][b]amix=inputs=2:duration=first:dropout_transition=0[a]",
-                "-map", "0:v", "-map", "[a]"]
+        vol = script.get("bgm_volume", BGM_VOLUME)
+        fade_in, fade_out = BGM_FADE
+        cmd += ["-stream_loop", "-1", "-i", bgm]
+        audio_f = (f";[3:a]volume={vol},afade=t=in:d={fade_in},"
+                   f"afade=t=out:st={max(0, total - fade_out):.3f}:d={fade_out}[b];"
+                   f"[2:a][b]amix=inputs=2:duration=first:dropout_transition=0:normalize=0[a]")
+        print(f"  BGM: {os.path.basename(bgm)}")
     else:
-        cmd += ["-map", "0:v", "-map", "1:a"]
-    cmd += ["-r", str(FPS), "-c:v", "libx264", "-pix_fmt", "yuv420p", "-preset", "medium", "-crf", "20",
-            "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-shortest", "-movflags", "+faststart", out_mp4]
+        audio_f = ";[2:a]anull[a]"
+    cmd += ["-filter_complex", video + audio_f, "-map", "[v]", "-map", "[a]",
+            "-t", f"{total:.3f}", "-r", str(FPS), "-c:v", "libx264", "-preset", "medium", "-crf", "20",
+            "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", out_mp4]
     subprocess.run(cmd, check=True)
 
-    # サムネイル用にタイトル画面を書き出す
-    shutil.copy(thumb, os.path.join(out_dir, f"{name}_thumb.png"))
+    # サムネイル用にタイトル画面を書き出す（背景を敷く）
+    cover = sunburst()
+    cover.alpha_composite(Image.open(thumb))
+    cover.convert("RGB").save(os.path.join(out_dir, f"{name}_thumb.png"))
     write_caption(script, os.path.join(out_dir, f"{name}.txt"))
     shutil.rmtree(work, ignore_errors=True)
 
-    total = sum(s for _, s in concat)
     print(f"完成: {out_mp4}（{total:.1f}秒）")
     if total > 60:
         print("  ※60秒を超えています。TikTokは問題ありませんが、短い方が最後まで見られやすいです。")

@@ -7,7 +7,9 @@
 #            枠に page: true を書くと、そこで枠を消して上から並べ直す。color: red などで色を変えられる
 #   ending : 最後の呼びかけ
 # yomi      : 読み上げ用（読み間違えそうな時だけ書く。なければ画面の文字を読む）
-# image     : shorts-maker/images/ に置いた画像のファイル名（任意）
+# image     : shorts-maker/images/ に置いた画像のファイル名、または画像のURL（任意）
+# image_search : 楽天市場で探すキーワード。image が空の時、一番上の商品の画像を使う（README 参照）
+# speaker   : 声（3=ずんだもん、2=四国めたん）。台本全体・シーン・枠ごとに書ける
 # link      : アフィリエイトリンク（概要欄テキストに入る）
 
 # 投稿するときのタイトル（概要欄テキストにも入る）
@@ -27,49 +29,59 @@ scenes:
   - rank: 5
     name: キャリングケース
     image: ""
+    image_search: Nintendo Switch 2 キャリングケース
     link: ""
     boxes:
       - text: 本体が大きくなって|カバンの中でぶつけがち
       - text: 7.9インチの画面に|傷ついたら泣くで
+        speaker: 2   # ツッコミは四国めたん
         yomi: 七点九インチの画面に傷ついたら泣くで
 
   - rank: 4
     name: 充電器・バッテリー
     name_yomi: 充電器とモバイルバッテリー
     image: ""
+    image_search: Nintendo Switch 2 充電器
     link: ""
     boxes:
       - text: 携帯モードだと|2時間ほどで切れることも
         yomi: 携帯モードだと、二時間ほどで切れることも
       - text: ええとこで電池切れは|ほんまに萎える
+        speaker: 2   # ツッコミは四国めたん
 
   - rank: 3
     name: Proコントローラー
     name_yomi: プロコントローラー
     image: ""
+    image_search: Nintendo Switch 2 Proコントローラー
     link: ""
     boxes:
       - text: 背面ボタン付きで|アクションが一気に快適
       - text: 一回使ったら|もう戻られへん
+        speaker: 2   # ツッコミは四国めたん
 
   - rank: 2
     name: 画面保護フィルム
     image: ""
+    image_search: Nintendo Switch 2 保護フィルム
     link: ""
     boxes:
       - text: 大画面は一回傷がつくと|ずっと気になる
       - text: 本体と同じ日に|貼るのが正解
+        speaker: 2   # ツッコミは四国めたん
         yomi: 本体と同じ日に貼るのが正解や
 
   - rank: 1
     name: microSD Express
     name_yomi: マイクロエスディーエクスプレス
     image: ""
+    image_search: microSD Express 256GB
     link: ""
     boxes:
       - text: ソフトの保存は|microSD Expressしか|使えない
         yomi: ソフトの保存は、マイクロエスディーエクスプレスしか使えない
       - text: 前のSwitchのmicroSDは|使えへんから要注意
+        speaker: 2   # ツッコミは四国めたん
         yomi: 前のスイッチのマイクロエスディーは、使えへんから要注意
 
   - type: ending

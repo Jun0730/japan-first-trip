@@ -49,6 +49,11 @@ jobs:
       - name: 動画を作る
         env:
           SCRIPT: ${{ github.event.inputs.script }}
+          # 商品画像を楽天から自動で取る時に使う（Settings → Secrets and variables → Actions に登録）
+          RAKUTEN_APP_ID: ${{ secrets.RAKUTEN_APP_ID }}
+          RAKUTEN_ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
+          RAKUTEN_AFFILIATE_ID: ${{ secrets.RAKUTEN_AFFILIATE_ID }}
+          RAKUTEN_ORIGIN: ${{ secrets.RAKUTEN_ORIGIN }}
         run: python shorts-maker/make_video.py ${SCRIPT:-shorts-maker/scripts/*.yaml} --out out
 
       - name: 完成した動画をダウンロードできるようにする
