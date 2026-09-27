@@ -557,6 +557,10 @@ def affiliate_link(link, script):
 
 def write_caption(script, out_txt):
     lines = [script["title"], "", "※本動画はアフィリエイト広告（PR）を含みます", ""]
+    # ショートの概要欄のリンクは押せないので、商品一覧（楽天ROOM など）への案内を先頭に書く
+    if script.get("shop_url"):
+        lines += [script.get("shop_guide", "▼紹介した商品はプロフィールのリンクから見られます"),
+                  script["shop_url"], ""]
     ranked = sorted([s for s in script["scenes"] if s.get("rank")], key=lambda s: s["rank"])
     if ranked:
         lines.append("▼紹介した商品")
