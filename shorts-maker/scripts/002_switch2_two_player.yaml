@@ -1,0 +1,102 @@
+# ─────────────────────────────────────────────
+# 2本目：2人で遊べる Switch 2 ソフト 5選
+# ─────────────────────────────────────────────
+# 情報は 2026-09-30 に確認（人数・発売日は任天堂公式・game8 など）
+#   マリオテニス フィーバー        2026/2/12  本体1台で1〜4人
+#   カービィのエアライダー          2025/11/20 本体1台で画面分割4人まで
+#   マリオパーティ ジャンボリー SW2 2025/7/24  本体1台で4人まで
+#   ドンキーコング バナンザ         2025/7/17  1〜2人（2人目はポリーン）
+#   マリオカート ワールド           2025/6/5   本体1台で画面分割4人まで
+# 1本目の分析（タイトル約6秒・締め約8秒で大きく離脱）から、タイトルは短く、締めは1文にしている
+
+title: 2人で遊ぶならコレ！Switch2で盛り上がるソフト5選
+
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: "BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）"
+
+# 商品一覧のページ（ショートの概要欄のリンクは押せないので、チャンネルのプロフィールに置く）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/collections
+shop_guide: "▼紹介したソフトはプロフィールのリンク（楽天ROOM）から見られます"
+
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+
+scenes:
+  - type: title
+    images:
+      - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3932/4902370553932_1_3.jpg?_ex=600x600
+      - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3642/4902370553642.jpg?_ex=600x600
+      - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3352/4902370553352_1_3.jpg?_ex=600x600
+      - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3413/4902370553413_1_5.jpg?_ex=600x600
+      - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3260/4902370553260_1_4.jpg?_ex=600x600
+    lines:
+      - { text: "2人で遊ぶなら", style: white }
+      - { text: "コレ買っとけ！", style: white }
+      - { text: "盛り上がる", style: red }
+      - { text: "Switch2ソフト", style: red }
+      - { text: "5選", style: yellow }
+    narration: 2人で遊ぶならコレ！盛り上がるスイッチツーのソフト、五選！
+
+  - rank: 5
+    name: マリオテニス フィーバー
+    image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3932/4902370553932_1_3.jpg?_ex=600x600
+    link: https://item.rakuten.co.jp/book/18379505/
+    boxes:
+      - text: 本体1台で|4人まで対戦できる
+        yomi: 本体1台で、4人まで対戦できる
+      - text: ラケットによって|試合の流れが変わる
+      - text: 負けた方が|ジュースおごりな
+        speaker: 2
+
+  - rank: 4
+    name: カービィのエアライダー
+    image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3642/4902370553642.jpg?_ex=600x600
+    link: https://item.rakuten.co.jp/book/18349314/
+    boxes:
+      - text: 画面分割で|4人まで同時に走れる
+        yomi: 画面分割で、4人まで同時に走れる
+      - text: 操作がシンプルで|ゲームが苦手でも入りやすい
+      - text: カービィやのに|大人が本気になるやつ
+        speaker: 2
+
+  - rank: 3
+    name: マリオパーティ ジャンボリー|Switch 2 Edition
+    name_yomi: マリオパーティ ジャンボリー、スイッチツーエディション
+    image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3352/4902370553352_1_3.jpg?_ex=600x600
+    link: https://item.rakuten.co.jp/book/18223362/
+    boxes:
+      - text: ミニゲームが大量の|パーティゲームの定番
+      - text: ジャンボリーTVは|カメラやマイクも使える
+      - text: 友情が壊れても|責任はとらんで
+        speaker: 2
+
+  - rank: 2
+    name: ドンキーコング バナンザ
+    image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3413/4902370553413_1_5.jpg?_ex=600x600
+    link: https://item.rakuten.co.jp/book/18210510/
+    boxes:
+      - text: 地形をぶっ壊しながら|進むアクション
+      - text: 2人目はポリーンになって|歌声で一緒に壊せる
+        yomi: 2人目はポリーンになって、歌声で一緒に壊せる
+      - text: 苦手な人は|2P側が楽しいで
+        yomi: 苦手な人は、ツーピー側が楽しいで
+        speaker: 2
+
+  - rank: 1
+    name: マリオカート ワールド
+    image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3260/4902370553260_1_4.jpg?_ex=600x600
+    link: https://item.rakuten.co.jp/book/18210489/
+    boxes:
+      - text: 画面分割で|4人まで一緒に遊べる
+        yomi: 画面分割で、4人まで一緒に遊べる
+      - text: コースがつながった|広い世界を走り回れる
+      - text: 迷ったらコレ|まずハズレなし
+        speaker: 2
+
+  - type: ending
+    lines:
+      - 紹介したソフトは
+      - プロフィールの
+      - リンクから！
+    narration: 紹介したソフトは、プロフィールのリンクからどうぞ！
+
+hashtags: ["#Switch2", "#ニンテンドースイッチ2", "#2人プレイ", "#協力プレイ", "#おすすめゲーム", "#マリオカートワールド"]

@@ -268,12 +268,31 @@ def rakuten_search(keyword):
     return [big, small] if big != small else [small], item.get("affiliateUrl") or item.get("itemUrl")
 
 
+def side_by_side(pics, height=600, gap=24):
+    """画像を同じ高さにそろえて並べた1枚にする。4枚以上は2段（上の段が多め）にする。"""
+    pics = [p.resize((int(p.width * height / p.height), height), Image.LANCZOS) for p in pics]
+    split = (len(pics) + 1) // 2 if len(pics) > 3 else len(pics)
+    rows = [r for r in (pics[:split], pics[split:]) if r]
+    widths = [sum(p.width for p in r) + gap * (len(r) - 1) for r in rows]
+    out = Image.new("RGBA", (max(widths), height * len(rows) + gap * (len(rows) - 1)), (0, 0, 0, 0))
+    for i, (r, w) in enumerate(zip(rows, widths)):
+        x = (out.width - w) // 2
+        for p in r:
+            out.alpha_composite(p, (x, i * (height + gap)))
+            x += p.width + gap
+    return out
+
+
 def load_image(scene, image_dir):
     """シーンの画像を読み込む。
 
     image        : images/ に置いたファイル名、または画像のURL
+    images       : 画像を何枚か横に並べる時（タイトル画面に商品をまとめて見せる時など）
     image_search : 楽天市場で探すキーワード（image がない時だけ使う）。link が空ならリンクも入れる
     """
+    if scene.get("images"):
+        pics = [p for p in (load_image({"image": n}, image_dir) for n in scene["images"]) if p]
+        return side_by_side(pics) if pics else None
     name = scene.get("image") or ""
     if not name and scene.get("image_search"):
         urls, link = rakuten_search(scene["image_search"])
@@ -332,13 +351,13 @@ def paste_bottom(img, image, max_w, max_h, margin, max_area=None):
         s = min(s, math.sqrt(max_area / (image.width * image.height)))
     pic = image.resize((int(image.width * s), int(image.height * s)), Image.LANCZOS)
     img.alpha_composite(pic, ((W - pic.width) // 2, H - margin - pic.height))
+    return H - margin - pic.height
 
 
 def render_title(lines, image=None, pop=1.0):
     """タイトル画面。行ごとに文字の大きさを幅いっぱいに合わせる。下にイラスト。"""
     img = canvas()
-    if image:
-        paste_bottom(img, image, 1060, 430, 28)
+    image_top = paste_bottom(img, image, 1060, 760, 28) if image else H
     layers = []
     for line in lines:
         if isinstance(line, str):
@@ -346,7 +365,7 @@ def render_title(lines, image=None, pop=1.0):
         layers.append(fitted_layer(line["text"], DISPLAY_FONT, 1040, line.get("size", 190),
                                    style=line.get("style", "white"), tracking=-0.06))
     gap = 18
-    area_top, area_bottom = 300, (1340 if image else 1700)
+    area_top, area_bottom = 260, min(1700, image_top - 30)
     total = sum(l.height for l in layers) + gap * (len(layers) - 1)
     scale = min(1.0, (area_bottom - area_top) / total)
     if scale < 1.0:
@@ -669,7 +688,7 @@ def main():
                    help="VOICEVOX の話者ID（3=ずんだもん）")
     p.add_argument("--speaker-name", default=os.environ.get("VOICEVOX_SPEAKER_NAME", "ずんだもん"),
                    help="概要欄のクレジットに書く名前")
-    p.add_argument("--speed", type=float, default=1.15, help="読み上げ速度")
+    p.add_argument("--speed", type=float, default=1.3, help="読み上げ速度")
     a = p.parse_args()
     cfg = {"tts": a.tts, "voicevox_url": a.voicevox_url, "speaker": a.speaker,
            "speaker_name": a.speaker_name, "speed": a.speed}
