@@ -19,6 +19,13 @@ title: Switch2買ったら…一緒に買わないと後悔する周辺機器５
 bgm: おどれグロッケンシュピール.mp3
 bgm_credit: "BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）"
 
+# 商品一覧のページ（ショートの概要欄のリンクは押せないので、チャンネルのプロフィールに置く）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/1800012718145909
+shop_guide: "▼紹介した商品はプロフィールのリンク（楽天ROOM）から見られます"
+
+# 楽天アフィリエイトID。書くと、楽天の商品ページの link が自動でアフィリエイトリンクになる
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+
 scenes:
   - type: title
     image: ""
@@ -32,9 +39,8 @@ scenes:
 
   - rank: 5
     name: キャリングケース
-    image: ""
-    image_search: Nintendo Switch 2 キャリングケース
-    link: ""
+    image: https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0021/4902370552768.jpg?_ex=600x600
+    link: https://item.rakuten.co.jp/jism/4902370552768-54-73620-n/
     boxes:
       - text: 本体が大きくなって|カバンの中でぶつけがち
       - text: 7.9インチの画面に|傷ついたら泣くで
@@ -44,9 +50,8 @@ scenes:
   - rank: 4
     name: 充電器・バッテリー
     name_yomi: 充電器とモバイルバッテリー
-    image: ""
-    image_search: Nintendo Switch 2 充電器
-    link: ""
+    image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/2607/4902370552607.jpg?_ex=600x600
+    link: https://item.rakuten.co.jp/book/18216615/
     boxes:
       - text: 携帯モードだと|2時間ほどで切れることも
         yomi: 携帯モードだと、二時間ほどで切れることも
@@ -56,9 +61,8 @@ scenes:
   - rank: 3
     name: Proコントローラー
     name_yomi: プロコントローラー
-    image: ""
-    image_search: Nintendo Switch 2 Proコントローラー
-    link: ""
+    image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/2843/4902370552843.jpg?_ex=600x600
+    link: https://item.rakuten.co.jp/book/18210484/
     boxes:
       - text: 背面ボタン付きで|アクションが一気に快適
       - text: 一回使ったら|もう戻られへん
@@ -66,9 +70,8 @@ scenes:
 
   - rank: 2
     name: 画面保護フィルム
-    image: ""
-    image_search: Nintendo Switch 2 保護フィルム
-    link: ""
+    image: https://thumbnail.image.rakuten.co.jp/@0_mall/mobile123/cabinet/bellemond/b15/hobf-swi2_001_gclv5.jpg?_ex=600x600
+    link: https://item.rakuten.co.jp/mobile123/b1504hobf/
     boxes:
       - text: 大画面は一回傷がつくと|ずっと気になる
       - text: 本体と同じ日に|貼るのが正解
@@ -78,9 +81,8 @@ scenes:
   - rank: 1
     name: microSD Express
     name_yomi: マイクロエスディーエクスプレス
-    image: ""
-    image_search: microSD Express 256GB
-    link: ""
+    image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0670/8806095700670.jpg?_ex=600x600
+    link: https://item.rakuten.co.jp/book/18210485/
     boxes:
       - text: ソフトの保存は|microSD Expressしか|使えない
         yomi: ソフトの保存は、マイクロエスディーエクスプレスしか使えない
@@ -97,7 +99,7 @@ scenes:
       - コメントで
       - 教えてね！！
     narration:
-      - 紹介した商品は、概要欄のリンクから見れるで。
+      - 紹介した商品は、プロフィールのリンクから見れるで。
       - みんなが一番買ってよかったのはどれ？コメントで教えてね！
 
 hashtags: ["#Switch2", "#ニンテンドースイッチ2", "#周辺機器", "#ガジェット", "#買ってよかった"]
