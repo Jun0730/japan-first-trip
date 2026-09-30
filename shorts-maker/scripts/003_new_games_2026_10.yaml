@@ -1,0 +1,104 @@
+# ─────────────────────────────────────────────
+# 3本目：2026年10月発売の新作ゲーム 5選（発売日順）
+# ─────────────────────────────────────────────
+# 情報は 2026-10-01 に確認（ファミ通の発売スケジュール・各公式・4Gamer など）
+#   ACE COMBAT 8: WINGS OF THEVE    10/2   PS5 / Xbox Series X|S / PC（9/29 から先行プレイ。正式発売は 10/2）
+#   RATATAN（ラタタン）              10/15  Switch 2 / PS5 / Xbox / PC（7/16 から延期）『パタポン』の小谷浩之がゲームデザイン
+#   ファイナルファンタジー レゾナンス  10/22  Switch 2 / Switch / PS5 / Xbox（Steam は 10/23）FF初のHD-2D
+#   Call of Duty: Modern Warfare 4  10/23  PS5 / Xbox / PC / Switch 2（Switch 2 版は Joy-Con 2 のマウス操作に対応）CERO Z
+#   サンリオ パーティランド          10/29  Switch 2 / Switch  最大4人・ミニゲーム45種類以上
+# 今回は「5選」でも順位ではなく発売日順に並べる（同じ型の量産に見えないよう、型を変えている）
+
+title: 10月発売の新作ゲーム5選！エースコンバット8・FFレゾナンス・CoD MW4ほか【2026年】
+
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: "BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）"
+
+# 商品一覧のページ（楽天ROOM のコレクション）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/1800012727460405
+shop_guide: "▼紹介したソフトの予約はプロフィールのリンク（楽天ROOM）から"
+
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+
+# 順位ではなく発売日順なので、概要欄の文は「1位」ではなく「1.」にする
+ranking: false
+
+scenes:
+  - type: title
+    images:
+      - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/6072/4580891516072.jpg?_ex=600x600
+      - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/6950/4580694046950_1_2.jpg?_ex=600x600
+      - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/2164/4988601012164.jpg?_ex=600x600
+      - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/5374/4549576295374_1_2.jpg?_ex=600x600
+      - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0989/4550624150989.jpg?_ex=600x600
+    lines:
+      - { text: "2026年10月", style: white }
+      - { text: "発売の", style: white }
+      - { text: "新作ゲーム", style: red }
+      - { text: "5選", style: yellow }
+    narration: 10月に出る新作ゲーム、五選！
+
+  - rank: 1
+    name: ACE COMBAT 8
+    name_yomi: エースコンバット エイト
+    image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/6072/4580891516072.jpg?_ex=600x600
+    link: https://item.rakuten.co.jp/book/18663067/
+    boxes:
+      - text: 10月2日発売|PS5・Xbox・PC
+        yomi: 十月二日発売
+      - text: 実在の戦闘機で|空を飛び回るシリーズ最新作
+        speaker: 2
+
+  - rank: 2
+    name: RATATAN
+    name_yomi: ラタタン
+    image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/6950/4580694046950_1_2.jpg?_ex=600x600
+    link: https://item.rakuten.co.jp/book/18586924/
+    boxes:
+      - text: 10月15日発売|Switch2・PS5ほか
+        yomi: 十月十五日発売
+      - text: パタポンの作者が手がける|リズムアクション
+        speaker: 2
+
+  - rank: 3
+    name: ファイナルファンタジー|レゾナンス
+    name_yomi: ファイナルファンタジー レゾナンス
+    image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/2164/4988601012164.jpg?_ex=600x600
+    link: https://item.rakuten.co.jp/book/18669724/
+    boxes:
+      - text: 10月22日発売|Switch2・PS5ほか
+        yomi: 十月二十二日発売
+      - text: FFシリーズ初の|HD-2DのRPG
+        yomi: エフエフシリーズ初の、エイチディーツーディーのアールピージー
+        speaker: 2
+
+  - rank: 4
+    name: Call of Duty MW4
+    name_yomi: コール オブ デューティ モダンウォーフェア フォー
+    image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/5374/4549576295374_1_2.jpg?_ex=600x600
+    link: https://item.rakuten.co.jp/book/18659451/
+    boxes:
+      - text: 10月23日発売|PS5・Switch2ほか|※18歳以上対象
+        yomi: 十月二十三日発売
+      - text: Switch2版は|Joy-Conのマウス操作に対応
+        yomi: スイッチツー版は、ジョイコンのマウス操作に対応
+        speaker: 2
+
+  - rank: 5
+    name: サンリオ パーティランド
+    image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0989/4550624150989.jpg?_ex=600x600
+    link: https://item.rakuten.co.jp/book/18672470/
+    boxes:
+      - text: 10月29日発売|Switch2・Switch
+        yomi: 十月二十九日発売
+      - text: ミニゲーム45種類以上|4人まで一緒に遊べる
+        speaker: 2
+
+  - type: ending
+    lines:
+      - 予約は
+      - プロフィールの
+      - リンクから！
+    narration: 予約はプロフィールのリンクからどうぞ！
+
+hashtags: ["#新作ゲーム", "#2026年10月", "#エースコンバット8", "#FFレゾナンス", "#CoD", "#Switch2", "#PS5"]

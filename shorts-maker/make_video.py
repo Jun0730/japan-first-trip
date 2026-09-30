@@ -584,7 +584,9 @@ def write_caption(script, out_txt):
     if ranked:
         lines.append("▼紹介した商品")
         for s in ranked:
-            lines.append(f"{s['rank']}位 {s['name'].replace('|', ' ')}")
+            # ranking: false の台本（発売日順など）は「1位」ではなく「1.」にする
+            mark = f"{s['rank']}位" if script.get("ranking", True) else f"{s['rank']}."
+            lines.append(f"{mark} {s['name'].replace('|', ' ')}")
             lines.append(f"  {affiliate_link(s.get('link'), script) or '（リンクをここに貼る）'}")
         lines.append("")
     for key in ("credit", "bgm_credit"):
