@@ -1,0 +1,83 @@
+# 今こそ新作を出してほしい任天堂の眠れるシリーズTOP5
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: 今こそ新作を出してほしい任天堂の眠れるシリーズTOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: 今こそ
+    style: white
+  - text: 新作を出してほしい
+    style: red
+  - text: 任天堂の
+    style: white
+  - text: 眠れるシリーズ
+    style: red
+  - text: TOP5
+    style: yellow
+  narration: 今こそ新作を出してほしい、任天堂の眠れるシリーズ、トップファイブ！
+- rank: 5
+  name: カスタムロボ
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/iimoreuse/cabinet/rakuten1/1361.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/iimoreuse/1361/
+  boxes:
+  - text: ロボを組み立てて戦う|対戦アクション
+  - text: 最後の新作は|2006年のDS版
+    yomi: 最後の新作は、2006年のディーエス版
+    speaker: 2
+- rank: 4
+  name: パイロットウイングス
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/bookoffonline/cabinet/277/0016525267l.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/bookoffonline/0016525267/
+  boxes:
+  - text: 空を飛ぶ|フライトゲーム
+  - text: 最後は2011年の|3DS版
+    yomi: 最後は2011年の、スリーディーエス版
+    speaker: 2
+- rank: 3
+  name: ワリオランド
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/kaitoriouji/cabinet/202012101448/b001adud1w.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/kaitoriouji/260916sk100233/
+  boxes:
+  - text: ワリオが主人公の|アクションゲーム
+  - text: 最後は2008年の|Wii版
+    yomi: 最後は2008年の、ウィー版
+    speaker: 2
+- rank: 2
+  name: F-ZERO
+  name_yomi: エフゼロ
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/kaitoriouji/cabinet/202011271218/b00008rjzu.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/kaitoriouji/260926sk110264/
+  boxes:
+  - text: 超高速の|SFレースゲーム
+    yomi: 超高速の、SFレースゲーム
+  - text: 据え置き機の完全新作は|2003年のGXが最後
+    yomi: 据え置き機の完全新作は、2003年のジーエックスが最後
+    speaker: 2
+- rank: 1
+  name: MOTHER
+  name_yomi: マザー
+  boxes:
+  - text: 最後の新作は|2006年のMOTHER3
+    yomi: 最後の新作は、2006年のマザースリー
+  - text: 20年たっても|ファンが待ってる
+    speaker: 2
+- type: ending
+  lines:
+  - 待ってるシリーズは
+  - コメントで
+  - 教えてね！
+  narration: 待ってるシリーズは、コメントで教えてね！
+hashtags:
+- '#任天堂'
+- '#新作希望'
+- '#ゲーム'
+- '#ランキング'
+- '#レトロゲーム'

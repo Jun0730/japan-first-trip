@@ -1,0 +1,69 @@
+# 今やると正直しんどい…昔のゲームの当たり前TOP5
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: 今やると正直しんどい…昔のゲームの当たり前TOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: 今やると
+    style: white
+  - text: 正直しんどい…
+    style: white
+  - text: 昔のゲームの
+    style: red
+  - text: 当たり前
+    style: red
+  - text: TOP5
+    style: yellow
+  narration: 今やると正直しんどい…昔のゲームの当たり前、トップファイブ！
+- rank: 5
+  name: ふっかつのじゅもん
+  boxes:
+  - text: セーブの代わりに|長い文字を書き写す
+  - text: 1文字まちがえたら|全部パー
+    speaker: 2
+- rank: 4
+  name: カセットにフーッ
+  name_yomi: カセットにふーっ
+  boxes:
+  - text: 動かない時は|端子に息を吹きかけた
+  - text: 実は故障の原因に|なることもあった
+    speaker: 2
+- rank: 3
+  name: 説明書が必須
+  name_yomi: 説明書が必須
+  boxes:
+  - text: 操作も世界観も|説明書に書いてあった
+  - text: 帰りの車で読むのが|楽しみやった
+    speaker: 2
+- rank: 2
+  name: 長いロード
+  boxes:
+  - text: 画面が切り替わるたびに|しばらく待たされる
+  - text: ロード中に|トイレ行けた
+    speaker: 2
+- rank: 1
+  name: セーブが消える
+  boxes:
+  - text: 電池切れや衝撃で|データが消えることも
+  - text: あの音楽は|今でもトラウマ
+    speaker: 2
+- type: ending
+  lines:
+  - 覚えてる人は
+  - コメントで
+  - 教えてね！
+  narration: 覚えてる人は、コメントで教えてね！
+hashtags:
+- '#レトロゲーム'
+- '#ゲームあるある'
+- '#懐かしい'
+- '#平成'
+- '#ランキング'

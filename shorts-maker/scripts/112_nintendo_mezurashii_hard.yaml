@@ -1,0 +1,79 @@
+# 今では考えられない！任天堂の珍しすぎるハード・周辺機器TOP5
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: 今では考えられない！任天堂の珍しすぎるハード・周辺機器TOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: 今では
+    style: white
+  - text: 考えられない！
+    style: white
+  - text: 任天堂の
+    style: red
+  - text: 珍しすぎるハード
+    style: red
+  - text: TOP5
+    style: yellow
+  narration: 今では考えられない！任天堂の珍しすぎるハードと周辺機器、トップファイブ！
+- rank: 5
+  name: ファミコンロボット
+  name_yomi: ファミコンロボット
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/ajimura4861/cabinet/20220376-5/b00gz8hl2q.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/ajimura4861/hb00gz8hl2q/
+  boxes:
+  - text: テレビの光の信号で|動くロボット
+  - text: 対応ソフトは|たった2本
+    speaker: 2
+- rank: 4
+  name: ポケットピカチュウ
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/mediaworldkaitoriworld/cabinet/6002/5/cg60025376.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/mediaworldkaitoriworld/60025376001/
+  boxes:
+  - text: 歩いた歩数で|ピカチュウと仲良くなる
+  - text: 毎日持ち歩いて|振りまくってた
+    speaker: 2
+- rank: 3
+  name: バーチャルボーイ
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/surugaya-a-too/cabinet/0292/171000100m.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/surugaya-a-too/182856-1/
+  boxes:
+  - text: 赤と黒だけで表示する|3Dゲーム機
+    yomi: 赤と黒だけで表示する、スリーディーゲーム機
+  - text: 今もファンが多い|伝説のハード
+    speaker: 2
+- rank: 2
+  name: バイタリティセンサー
+  boxes:
+  - text: 指で脈をはかる|Wiiの周辺機器
+    yomi: 指で脈をはかる、ウィーの周辺機器
+  - text: 発表されたけど|発売されなかった
+    speaker: 2
+- rank: 1
+  name: ニンテンドーラボ
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/skgroup/cabinet/10549314/compass1739522147.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/skgroup/compass1739522222/
+  boxes:
+  - text: 段ボールを組み立てて|Joy-Conで遊ぶ
+    yomi: 段ボールを組み立てて、ジョイコンで遊ぶ
+  - text: ピアノやバイクまで|段ボールで作れた
+    speaker: 2
+- type: ending
+  lines:
+  - 持ってた人は
+  - コメントで
+  - 教えてね！
+  narration: 持ってた人は、コメントで教えてね！
+hashtags:
+- '#任天堂'
+- '#レトロゲーム'
+- '#ゲーム雑学'
+- '#懐かしい'
+- '#ランキング'

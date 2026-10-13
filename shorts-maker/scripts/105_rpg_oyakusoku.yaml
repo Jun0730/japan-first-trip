@@ -1,0 +1,67 @@
+# またこれか！RPGでよく見るお約束展開TOP5
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: またこれか！RPGでよく見るお約束展開TOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: またこれか！
+    style: white
+  - text: RPGで
+    style: white
+  - text: よく見る
+    style: red
+  - text: お約束展開
+    style: red
+  - text: TOP5
+    style: yellow
+  narration: またこれか！アールピージーでよく見るお約束展開、トップファイブ！
+- rank: 5
+  name: 主人公が記憶喪失
+  boxes:
+  - text: 物語の始まりで|主人公が記憶をなくしている
+  - text: だいたい世界の|重要人物
+    speaker: 2
+- rank: 4
+  name: 仲間の裏切り
+  boxes:
+  - text: 頼れる仲間が|実は敵のスパイ
+  - text: いちばんいい装備|あげてたのに
+    speaker: 2
+- rank: 3
+  name: 負けイベント
+  boxes:
+  - text: どう頑張っても|勝てない強敵との戦い
+  - text: 回復アイテム|全部使ってもうた
+    speaker: 2
+- rank: 2
+  name: 黒幕は神様
+  boxes:
+  - text: 倒したと思ったら|裏で神が操っていた
+  - text: 最後はだいたい|神と戦う
+    speaker: 2
+- rank: 1
+  name: 故郷の村が燃える
+  boxes:
+  - text: 平和な村が|いきなり襲われる
+  - text: 旅立ちのきっかけ|ナンバーワン
+    speaker: 2
+- type: ending
+  lines:
+  - 他にもあったら
+  - コメントで
+  - 教えてね！
+  narration: 他にもあったら、コメントで教えてね！
+hashtags:
+- '#RPG'
+- '#ゲームあるある'
+- '#お約束'
+- '#ランキング'
+- '#ゲーム'

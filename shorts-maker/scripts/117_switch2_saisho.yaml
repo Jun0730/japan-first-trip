@@ -1,0 +1,88 @@
+# Switch2を買ったら最初に遊ぶべきソフトTOP5
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: Switch2を買ったら最初に遊ぶべきソフトTOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: Switch2を
+    style: white
+  - text: 買ったら
+    style: white
+  - text: 最初に遊ぶべき
+    style: red
+  - text: ソフト
+    style: red
+  - text: TOP5
+    style: yellow
+  narration: スイッチツーを買ったら、最初に遊ぶべきソフト、トップファイブ！
+  images:
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3574/4902370553574.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/treasure-eight/cabinet/product/game-soft/switch2-1/002-032-251121-03-01.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3321/4902370553321.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/mediaworldkaitoriworld/cabinet/1049/0/cg10490005.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/edion/cabinet/goods/ll/img_340/4902370553260_1.jpg?_ex=600x600
+- rank: 5
+  name: ポケモンレジェンズ Z-A
+  name_yomi: ポケモンレジェンズ ゼットエー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3574/4902370553574.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18314208/
+  boxes:
+  - text: ミアレシティが舞台の|ポケモンの新作
+  - text: ポケモン好きなら|まず押さえたい
+    speaker: 2
+- rank: 4
+  name: カービィのエアライダー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/treasure-eight/cabinet/product/game-soft/switch2-1/002-032-251121-03-01.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/treasure-eight/002-032-251211-1001/
+  boxes:
+  - text: 操作はシンプル|奥はとことん深い
+  - text: みんなでワイワイ|走れる
+    speaker: 2
+- rank: 3
+  name: ゼルダの伝説 ティアキン
+  name_yomi: ゼルダの伝説 ティアーズ オブ ザ キングダム
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3321/4902370553321.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18223361/
+  boxes:
+  - text: あの名作が|Switch2でもっときれいに
+    yomi: あの名作が、スイッチツーでもっときれいに
+  - text: 初めての人も|今がチャンス
+    speaker: 2
+- rank: 2
+  name: ドンキーコング バナンザ
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/mediaworldkaitoriworld/cabinet/1049/0/cg10490005.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/mediaworldkaitoriworld/10490005001/
+  boxes:
+  - text: なんでも壊して進む|Switch2専用ソフト
+    yomi: なんでも壊して進む、スイッチツー専用ソフト
+  - text: 壊すのが|とにかく気持ちいい
+    speaker: 2
+- rank: 1
+  name: マリオカート ワールド
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/edion/cabinet/goods/ll/img_340/4902370553260_1.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/edion/4902370553260/
+  boxes:
+  - text: コースがつながった|広い世界を走る
+  - text: Switch2を買ったら|まずコレ
+    yomi: スイッチツーを買ったら、まずコレ
+    speaker: 2
+- type: ending
+  lines:
+  - ソフトは
+  - プロフィールの
+  - リンクから！
+  narration: ソフトはプロフィールのリンクからどうぞ！
+hashtags:
+- '#Switch2'
+- '#ニンテンドースイッチ2'
+- '#おすすめゲーム'
+- '#神ゲー'
+- '#ランキング'

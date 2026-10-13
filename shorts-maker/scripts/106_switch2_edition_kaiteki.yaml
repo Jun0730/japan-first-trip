@@ -1,0 +1,88 @@
+# Switch2で別物レベルに快適になったゲームTOP5
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: Switch2で別物レベルに快適になったゲームTOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: Switch2で
+    style: white
+  - text: 別物レベルに
+    style: red
+  - text: 快適になった
+    style: red
+  - text: ゲーム
+    style: white
+  - text: TOP5
+    style: yellow
+  narration: スイッチツーで別物レベルに快適になったゲーム、トップファイブ！
+  images:
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3352/4902370553352_1_3.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3901/4902370553901.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3383/4902370553383.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3291/4902370553291.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3321/4902370553321.jpg?_ex=600x600
+- rank: 5
+  name: マリオパーティ ジャンボリー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3352/4902370553352_1_3.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18223362/
+  boxes:
+  - text: Switch2版はジャンボリーTVで|カメラやマイクも使える
+    yomi: スイッチツー版はジャンボリーTVで、カメラやマイクも使える
+  - text: 画面に自分が映るのが|新鮮すぎる
+    speaker: 2
+- rank: 4
+  name: あつまれ どうぶつの森
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3901/4902370553901.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18434382/
+  boxes:
+  - text: Switch2版は|マウス操作に対応
+    yomi: スイッチツー版は、マウス操作に対応
+  - text: 家具の配置が|めっちゃ楽
+    speaker: 2
+- rank: 3
+  name: 星のカービィ ディスカバリー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3383/4902370553383.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18223363/
+  boxes:
+  - text: 画質アップに加えて|新ストーリーも追加
+  - text: カービィが|前よりなめらか
+    speaker: 2
+- rank: 2
+  name: ゼルダの伝説 ブレワイ
+  name_yomi: ゼルダの伝説 ブレス オブ ザ ワイルド
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3291/4902370553291.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18223360/
+  boxes:
+  - text: 解像度とフレームレートが上がり|HDRにも対応
+    yomi: 解像度とフレームレートが上がり、エイチディーアールにも対応
+  - text: あのハイラルが|もっときれいに
+    speaker: 2
+- rank: 1
+  name: ゼルダの伝説 ティアキン
+  name_yomi: ゼルダの伝説 ティアーズ オブ ザ キングダム
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3321/4902370553321.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18223361/
+  boxes:
+  - text: スマホアプリ|ゼルダノーツと連動できる
+  - text: ウルトラハンドの|クラフトも快適
+    speaker: 2
+- type: ending
+  lines:
+  - ソフトは
+  - プロフィールの
+  - リンクから！
+  narration: ソフトはプロフィールのリンクからどうぞ！
+hashtags:
+- '#Switch2'
+- '#ニンテンドースイッチ2'
+- '#Switch2Edition'
+- '#おすすめゲーム'
+- '#ランキング'

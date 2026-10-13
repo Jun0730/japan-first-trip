@@ -1,0 +1,84 @@
+# 発売日に大行列！品薄で社会現象になったゲーム5選
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: 発売日に大行列！品薄で社会現象になったゲーム5選
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: '{n}、{name}'
+ranking: false
+scenes:
+- type: title
+  lines:
+  - text: 発売日に大行列！
+    style: white
+  - text: 品薄で
+    style: white
+  - text: 社会現象に
+    style: red
+  - text: なったゲーム
+    style: red
+  - text: 5選
+    style: yellow
+  narration: 発売日に大行列！品薄で社会現象になったゲーム、五選！
+- rank: 1
+  name: ドラゴンクエストIII
+  name_yomi: ドラゴンクエストスリー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/centerwave/cabinet/nintendo/nintendo_soft/13465.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/centerwave/13465/
+  boxes:
+  - text: 1988年|平日の発売日にお店へ大行列
+  - text: 学校を休んで|並ぶ子まで現れた
+    speaker: 2
+- rank: 2
+  name: プレイステーション2
+  name_yomi: プレイステーション2
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/iimoreuse/cabinet/rakuten1/184.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/iimoreuse/184/
+  boxes:
+  - text: 2000年|発売日の朝から長い行列
+  - text: DVDも見られる|ゲーム機として話題
+    yomi: DVDも見られる、ゲーム機として話題
+    speaker: 2
+- rank: 3
+  name: ニンテンドーDS Lite
+  name_yomi: ニンテンドーディーエス ライト
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/centerwave/cabinet/08144867/08164825/08164838/imgrc0110378376.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/centerwave/2cm-20171002-r5033/
+  boxes:
+  - text: 2006年|発売後しばらく品薄が続いた
+  - text: お店をハシゴして|探し回った
+    speaker: 2
+- rank: 4
+  name: Wii
+  name_yomi: ウィー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/daichugame/cabinet/amayahoo/08421893/08515157/imgrc0111949221.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/daichugame/wiinomal2pset_0001/
+  boxes:
+  - text: 2006年|リモコンを振る遊びで大人気
+  - text: おじいちゃんまで|ボウリングしてた
+    speaker: 2
+- rank: 5
+  name: Nintendo Switch 2
+  name_yomi: ニンテンドースイッチツー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/2801/2100015192801.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18805637/
+  boxes:
+  - text: 2025年|任天堂の抽選販売に約220万人が応募
+  - text: 発売日に手に入った人は|勝ち組
+    speaker: 2
+- type: ending
+  lines:
+  - 並んだことある人は
+  - コメントで
+  - 教えてね！
+  narration: 並んだことある人は、コメントで教えてね！
+hashtags:
+- '#ゲーム雑学'
+- '#社会現象'
+- '#懐かしい'
+- '#Switch2'
+- '#ドラクエ'

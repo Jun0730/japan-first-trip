@@ -23,6 +23,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -221,10 +222,33 @@ def paste_center(img, layer, center_x, top):
     img.alpha_composite(layer, (int(center_x - layer.width / 2), int(top)))
 
 
-def fetch(url, timeout=60, headers=None):
+CACHE_DIR = os.path.join(tempfile.gettempdir(), "shorts-maker-cache")
+
+
+def fetch(url, timeout=60, headers=None, retries=3, cache=False):
+    """URL の中身を取る。通信が切れた時は少し待って取り直す。cache=True なら一度取った物をPCに保存して使い回す。"""
+    path = None
+    if cache:
+        import hashlib
+        os.makedirs(CACHE_DIR, exist_ok=True)
+        path = os.path.join(CACHE_DIR, hashlib.sha1(url.encode()).hexdigest())
+        if os.path.exists(path):
+            return open(path, "rb").read()
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (shorts-maker)", **(headers or {})})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return r.read()
+    for attempt in range(retries):
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                data = r.read()
+            break
+        except urllib.error.HTTPError:
+            raise
+        except Exception:
+            if attempt == retries - 1:
+                raise
+            time.sleep(3 * (attempt + 1))
+    if path:
+        open(path, "wb").write(data)
+    return data
 
 
 def rakuten_search(keyword):
@@ -300,7 +324,7 @@ def load_image(scene, image_dir):
             scene["link"] = link
         for url in urls or []:
             try:
-                return Image.open(io.BytesIO(fetch(url))).convert("RGBA")
+                return Image.open(io.BytesIO(fetch(url, cache=True))).convert("RGBA")
             except Exception as e:
                 print(f"    ※ 楽天の画像を取れませんでした（{url}）: {e}")
         return None
@@ -308,7 +332,7 @@ def load_image(scene, image_dir):
         return None
     try:
         if name.startswith(("http://", "https://")):
-            data = fetch(name)
+            data = fetch(name, cache=True)
         else:
             path = os.path.join(image_dir, name)
             if not os.path.exists(path):

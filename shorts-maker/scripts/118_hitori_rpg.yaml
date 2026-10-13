@@ -1,0 +1,90 @@
+# 1人でじっくり遊べるSwitchの神RPG TOP5
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: 1人でじっくり遊べるSwitchの神RPG TOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: 1人でじっくり
+    style: white
+  - text: 遊べる
+    style: white
+  - text: Switchの
+    style: red
+  - text: 神RPG
+    style: red
+  - text: TOP5
+    style: yellow
+  narration: 1人でじっくり遊べる、スイッチの神アールピージー、トップファイブ！
+  images:
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/2287/4988601012287.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/2684/4902370542684.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/outletplaza/cabinet/111/4984995905648.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/2188/4988601012188.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/4441/4902370554441.jpg?_ex=600x600
+- rank: 5
+  name: オクトパストラベラーII
+  name_yomi: オクトパストラベラーツー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/2287/4988601012287.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18719188/
+  boxes:
+  - text: 8人の旅人の物語を|好きな順番で進める
+  - text: ドット絵が|とにかくきれい
+    speaker: 2
+- rank: 4
+  name: ファイアーエムブレム 風花雪月
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/2684/4902370542684.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/15818394/
+  boxes:
+  - text: 3つの学級から|1つを選んで導く
+  - text: 選んだ学級で|物語が変わる
+    speaker: 2
+- rank: 3
+  name: ペルソナ5 ザ・ロイヤル
+  name_yomi: ペルソナファイブ ザ ロイヤル
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/outletplaza/cabinet/111/4984995905648.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/outletplaza/40000984799/
+  boxes:
+  - text: 昼は高校生|夜は怪盗のRPG
+    yomi: 昼は高校生、夜は怪盗のアールピージー
+  - text: 画面の作りが|おしゃれすぎる
+    speaker: 2
+- rank: 2
+  name: ドラゴンクエストXI S
+  name_yomi: ドラゴンクエストイレブン エス
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/2188/4988601012188.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18657658/
+  boxes:
+  - text: 3Dと2Dを|切り替えて遊べる
+    yomi: スリーディーとツーディーを、切り替えて遊べる
+  - text: 王道RPGの|お手本みたいな作品
+    yomi: 王道アールピージーの、お手本みたいな作品
+    speaker: 2
+- rank: 1
+  name: ゼノブレイド3
+  name_yomi: ゼノブレイド3
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/4441/4902370554441.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18672243/
+  boxes:
+  - text: 100時間を超える|大ボリュームの冒険
+  - text: ラストは|涙なしでは見られへん
+    speaker: 2
+- type: ending
+  lines:
+  - ソフトは
+  - プロフィールの
+  - リンクから！
+  narration: ソフトはプロフィールのリンクからどうぞ！
+hashtags:
+- '#RPG'
+- '#Switch'
+- '#神ゲー'
+- '#おすすめゲーム'
+- '#ランキング'

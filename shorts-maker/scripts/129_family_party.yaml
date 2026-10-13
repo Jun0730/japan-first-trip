@@ -1,0 +1,86 @@
+# 家族みんなで盛り上がるパーティゲームTOP5
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: 家族みんなで盛り上がるパーティゲームTOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: 家族みんなで
+    style: white
+  - text: 盛り上がる
+    style: red
+  - text: パーティゲーム
+    style: red
+  - text: TOP5
+    style: yellow
+  narration: 家族みんなで盛り上がるパーティゲーム、トップファイブ！
+  images:
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9263/4902370549263_1_2.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/5784/4902370545784.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0060/4580555480060.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9248/4988602179248_1_2.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/2430/4902370552430_1_3.jpg?_ex=600x600
+- rank: 5
+  name: Nintendo Switch Sports
+  name_yomi: ニンテンドースイッチ スポーツ
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9263/4902370549263_1_2.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/17056014/
+  boxes:
+  - text: Joy-Conを振って|テニスやボウリング
+    yomi: ジョイコンを振って、テニスやボウリング
+  - text: おじいちゃんも|おばあちゃんも楽しめる
+    speaker: 2
+- rank: 4
+  name: 世界のアソビ大全51
+  name_yomi: 世界のアソビ大全51
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/5784/4902370545784.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/16284769/
+  boxes:
+  - text: トランプや将棋など|51種類の遊び
+  - text: 1本あれば|お正月が持つ
+    speaker: 2
+- rank: 3
+  name: オーバークック2
+  name_yomi: オーバークックツー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0060/4580555480060.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/16749514/
+  boxes:
+  - text: みんなで協力して|料理を作るゲーム
+  - text: ケンカになるのも|お約束
+    speaker: 2
+- rank: 2
+  name: 桃太郎電鉄2
+  name_yomi: ももたろうでんてつツー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9248/4988602179248_1_2.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18328072/
+  boxes:
+  - text: 日本中の駅を|サイコロで旅する
+  - text: 友情破壊ゲームの|代表格
+    speaker: 2
+- rank: 1
+  name: マリオパーティ ジャンボリー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/2430/4902370552430_1_3.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/17915650/
+  boxes:
+  - text: ミニゲームが|110種類以上
+  - text: 家族の本気が|見られる
+    speaker: 2
+- type: ending
+  lines:
+  - ソフトは
+  - プロフィールの
+  - リンクから！
+  narration: ソフトはプロフィールのリンクからどうぞ！
+hashtags:
+- '#パーティゲーム'
+- '#家族'
+- '#Switch'
+- '#おすすめゲーム'
+- '#ランキング'

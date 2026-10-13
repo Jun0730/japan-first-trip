@@ -1,0 +1,78 @@
+# 当時のキッズはどうやってクリアしたんだ…理不尽レトロゲームTOP5
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: 当時のキッズはどうやってクリアしたんだ…理不尽レトロゲームTOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: 当時のキッズは
+    style: white
+  - text: どうやって
+    style: white
+  - text: クリアしたんだ…
+    style: red
+  - text: 理不尽レトロゲーム
+    style: red
+  - text: TOP5
+    style: yellow
+  narration: 当時のキッズはどうやってクリアしたんだ…理不尽レトロゲーム、トップファイブ！
+- rank: 5
+  name: スペランカー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/auc-egames/cabinet/00772248/img55599796.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/auc-egames/10000036/
+  boxes:
+  - text: 自分の背より低い段差から|落ちてもやられる
+  - text: 史上最弱の主人公って|言われるのも納得
+    speaker: 2
+- rank: 4
+  name: ドラゴンクエストII
+  name_yomi: ドラゴンクエストツー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/centerwave/cabinet/nintendo/nintendo_soft/13464.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/centerwave/13464/
+  boxes:
+  - text: ロンダルキアの洞窟は|落とし穴だらけの迷路
+  - text: ふっかつのじゅもんを|写し間違えたら終わり
+    speaker: 2
+- rank: 3
+  name: たけしの挑戦状
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/kaitoriheroes/cabinet/04217988/04243280/imgrc0063661470.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/kaitoriheroes/10003147/
+  boxes:
+  - text: 歌ったり1時間待ったり|常識外れの謎解き
+  - text: 攻略本なしで解けた人|おるんか？
+    speaker: 2
+- rank: 2
+  name: 魔界村
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/kaitoriheroes/cabinet/04217988/04243280/imgrc0063661331.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/kaitoriheroes/10004378/
+  boxes:
+  - text: 2回クリアしないと|本当のエンディングにならない
+  - text: 鎧が取れたら|あと1発でアウト
+    speaker: 2
+- rank: 1
+  name: 忍者龍剣伝
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/auc-egames/cabinet/00792398/img55672261.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/auc-egames/10000647/
+  boxes:
+  - text: 鳥にぶつかって穴に落ちる|理不尽ジャンプの代名詞
+  - text: ラスボスでやられたら|ステージの最初から
+    speaker: 2
+- type: ending
+  lines:
+  - 挫折したゲームは
+  - コメントで
+  - 教えてね！
+  narration: みんなが挫折したゲームは、コメントで教えてね！
+hashtags:
+- '#レトロゲーム'
+- '#ファミコン'
+- '#理不尽'
+- '#ランキング'
+- '#懐かしい'

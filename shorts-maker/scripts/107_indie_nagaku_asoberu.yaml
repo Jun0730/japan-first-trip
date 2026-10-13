@@ -1,0 +1,75 @@
+# 数千円で何百時間も遊べるインディーゲームTOP5
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: 数千円で何百時間も遊べるインディーゲームTOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: 数千円で
+    style: white
+  - text: 何百時間も
+    style: red
+  - text: 遊べる
+    style: red
+  - text: インディーゲーム
+    style: white
+  - text: TOP5
+    style: yellow
+  narration: 数千円で何百時間も遊べるインディーゲーム、トップファイブ！
+- rank: 5
+  name: ヴァンパイアサバイバーズ
+  boxes:
+  - text: 数百円なのに|気づけば数十時間
+  - text: 敵を倒す音が|クセになる
+    speaker: 2
+- rank: 4
+  name: スレイ・ザ・スパイア
+  boxes:
+  - text: カードで戦いながら|塔を登るローグライク
+  - text: 毎回デッキが違うから|飽きへん
+    speaker: 2
+- rank: 3
+  name: ハデス
+  name_yomi: ハデス
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0125/4589508180125.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/16834819/
+  boxes:
+  - text: 死ぬたびに強くなって|地獄からの脱出をめざす
+  - text: やられても|物語が進むのがえらい
+    speaker: 2
+- rank: 2
+  name: テラリア
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/6512/4940261516512.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/16082802/
+  boxes:
+  - text: 掘って作って戦う|2Dのサンドボックス
+    yomi: 掘って作って戦う、ツーディーのサンドボックス
+  - text: マイクラ好きなら|ハマること間違いなし
+    speaker: 2
+- rank: 1
+  name: スターデューバレー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/rdownload/cabinet/thumbs/800000079/2/801925482_p.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/rdownload/802550345/
+  boxes:
+  - text: 1人の開発者が作った|牧場生活ゲーム
+  - text: 1日だけ…が|1年たってる
+    speaker: 2
+- type: ending
+  lines:
+  - ソフトは
+  - プロフィールの
+  - リンクから！
+  narration: ソフトはプロフィールのリンクからどうぞ！
+hashtags:
+- '#インディーゲーム'
+- '#神ゲー'
+- '#コスパ最強'
+- '#おすすめゲーム'
+- '#ランキング'

@@ -1,0 +1,80 @@
+# ラスボス戦のBGMが神すぎるゲームTOP5
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: ラスボス戦のBGMが神すぎるゲームTOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: ラスボス戦の
+    style: white
+  - text: BGMが
+    style: white
+  - text: 神すぎる
+    style: red
+  - text: ゲーム
+    style: red
+  - text: TOP5
+    style: yellow
+  narration: ラスボス戦のビージーエムが神すぎるゲーム、トップファイブ！
+- rank: 5
+  name: アンダーテール
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/rdownload/cabinet/thumbs/800000079/3/801950083_p.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/rdownload/802586152/
+  boxes:
+  - text: 最後の戦いの曲は|Hopes and Dreams
+    yomi: 最後の戦いの曲は、ホープス アンド ドリームス
+  - text: それまでの曲が|つながっていくのが熱い
+    speaker: 2
+- rank: 4
+  name: ドラゴンクエストIII
+  name_yomi: ドラゴンクエストスリー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/renet3/cabinet/zisya35/0014003702.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/renet3/0014003702/
+  boxes:
+  - text: ゾーマ戦の曲は|勇者の挑戦
+  - text: いつ聴いても|テンション上がる
+    speaker: 2
+- rank: 3
+  name: クロノ・トリガー
+  name_yomi: クロノトリガー
+  boxes:
+  - text: ラスボス戦の曲は|世界変革
+  - text: タイトルからして|かっこよすぎる
+    speaker: 2
+- rank: 2
+  name: ファイナルファンタジーVII
+  name_yomi: ファイナルファンタジーセブン
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/yms--online/cabinet/08178905/imgrc0102979018.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/yms--online/nin-ff7-8-tw/
+  boxes:
+  - text: セフィロス戦の曲は|片翼の天使
+  - text: コーラスが入った瞬間|鳥肌
+    speaker: 2
+- rank: 1
+  name: ファイナルファンタジーVI
+  name_yomi: ファイナルファンタジーシックス
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/kkpli/cabinet/shohin04/compass1731049234.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/kkpli/ff1-6-switch/
+  boxes:
+  - text: ケフカ戦の曲は|パイプオルガンから始まる妖星乱舞
+  - text: スーファミとは|思えん迫力
+    speaker: 2
+- type: ending
+  lines:
+  - みんなの1位は
+  - コメントで
+  - 教えてね！
+  narration: みんなの1位は、コメントで教えてね！
+hashtags:
+- '#ゲーム音楽'
+- '#神曲'
+- '#ラスボス'
+- '#ランキング'
+- '#RPG'

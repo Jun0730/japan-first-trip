@@ -1,0 +1,86 @@
+# 怖すぎて夜にできないホラーゲームTOP5
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: 怖すぎて夜にできないホラーゲームTOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: 怖すぎて
+    style: white
+  - text: 夜にできない
+    style: red
+  - text: ホラーゲーム
+    style: red
+  - text: TOP5
+    style: yellow
+  narration: 怖すぎて夜にできないホラーゲーム、トップファイブ！
+  images:
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/geoonline1/cabinet/1442/5151442-01.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/8111/4573173328111.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0368/4988602177602.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/bookoffonline/cabinet/527/0019176570l.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/renet20/cabinet/item_photo/001250/5/0012505110.jpg?_ex=600x600
+- rank: 5
+  name: 零 濡鴉ノ巫女
+  name_yomi: ぜろ ぬれがらすのみこ
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/geoonline1/cabinet/1442/5151442-01.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/geoonline1/515144202/
+  boxes:
+  - text: カメラで霊を撮影して|戦う和風ホラー
+  - text: 日本の怖さが|じわじわくる
+    speaker: 2
+- rank: 4
+  name: リトルナイトメア
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/8111/4573173328111.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/15416805/
+  boxes:
+  - text: 小さな子どもが主人公の|不気味なアクション
+  - text: 見た目がかわいいのが|逆に怖い
+    speaker: 2
+- rank: 3
+  name: サイレントヒル2
+  name_yomi: サイレントヒルツー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0368/4988602177602.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/jism/4988602177602-54-71482-n/
+  boxes:
+  - text: 霧の街をさまよう|名作ホラーのリメイク
+  - text: 音だけで|心臓がもたへん
+    speaker: 2
+- rank: 2
+  name: バイオハザード RE:2
+  name_yomi: バイオハザード アールイーツー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/bookoffonline/cabinet/527/0019176570l.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/bookoffonline/0019176570/
+  boxes:
+  - text: ゾンビだらけの警察署から|脱出をめざす
+  - text: 追いかけてくる大男が|しつこすぎる
+    speaker: 2
+- rank: 1
+  name: バイオハザード7
+  name_yomi: バイオハザードセブン
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/renet20/cabinet/item_photo/001250/5/0012505110.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/renet20/r0012505110/
+  boxes:
+  - text: 一人称視点で|すぐ目の前に恐怖が来る
+  - text: VRでやったら|ほんまに無理
+    yomi: ブイアールでやったら、ほんまに無理
+    speaker: 2
+- type: ending
+  lines:
+  - ソフトは
+  - プロフィールの
+  - リンクから！
+  narration: ソフトはプロフィールのリンクからどうぞ！
+hashtags:
+- '#ホラーゲーム'
+- '#怖い'
+- '#バイオハザード'
+- '#おすすめゲーム'
+- '#ランキング'

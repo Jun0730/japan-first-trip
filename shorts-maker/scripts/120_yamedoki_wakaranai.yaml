@@ -1,0 +1,81 @@
+# やめどきが分からない中毒性ゲームTOP5
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: やめどきが分からない中毒性ゲームTOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: やめどきが
+    style: white
+  - text: 分からない
+    style: red
+  - text: 中毒性ゲーム
+    style: red
+  - text: TOP5
+    style: yellow
+  narration: やめどきが分からない、中毒性ゲーム、トップファイブ！
+  images:
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0546/4974365870546.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/specunion/cabinet/images_03/4571304478049_1.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/4710/4580694044710.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/lcs-live/cabinet/living/09818817/09818821/imgrc0337365439.jpg?_ex=600x600
+- rank: 5
+  name: ぷよぷよテトリス2
+  name_yomi: ぷよぷよテトリスツー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0546/4974365870546.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18223333/
+  boxes:
+  - text: ぷよぷよとテトリスが|1本で遊べる
+  - text: あと1回が|止まらへん
+    speaker: 2
+- rank: 4
+  name: スイカゲーム
+  boxes:
+  - text: フルーツを合体させて|スイカをめざす
+  - text: 2023年に|配信者の間で大流行
+    speaker: 2
+- rank: 3
+  name: シヴィライゼーションVI
+  name_yomi: シヴィライゼーションシックス
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/specunion/cabinet/images_03/4571304478049_1.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/specunion/4571304478049/
+  boxes:
+  - text: あと1ターンだけ…の|代名詞
+  - text: 気づいたら|外が明るい
+    speaker: 2
+- rank: 2
+  name: バラトロ
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/4710/4580694044710.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/17937722/
+  boxes:
+  - text: ポーカーの役で戦う|ローグライク
+  - text: 点数が大きくなる|快感がクセになる
+    speaker: 2
+- rank: 1
+  name: ハデスII
+  name_yomi: ハデスツー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/lcs-live/cabinet/living/09818817/09818821/imgrc0337365439.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/lcs-live/10020205/
+  boxes:
+  - text: 死ぬたびに強くなる|ローグライクの続編
+  - text: 前作以上に|やめどきがない
+    speaker: 2
+- type: ending
+  lines:
+  - ソフトは
+  - プロフィールの
+  - リンクから！
+  narration: ソフトはプロフィールのリンクからどうぞ！
+hashtags:
+- '#中毒性'
+- '#神ゲー'
+- '#おすすめゲーム'
+- '#ランキング'
+- '#ゲーム'

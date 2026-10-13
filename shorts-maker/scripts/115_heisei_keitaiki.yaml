@@ -1,0 +1,79 @@
+# 平成キッズが熱中した携帯ゲーム機5選
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: 平成キッズが熱中した携帯ゲーム機5選
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: '{n}、{name}'
+ranking: false
+scenes:
+- type: title
+  lines:
+  - text: 平成キッズが
+    style: white
+  - text: 熱中した
+    style: red
+  - text: 携帯ゲーム機
+    style: red
+  - text: 5選
+    style: yellow
+  narration: 平成キッズが熱中した携帯ゲーム機、五選！
+- rank: 1
+  name: ゲームボーイ
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/wattmann/cabinet/item20260615/9313030068379-1.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/wattmann/9313030068379/
+  boxes:
+  - text: 1989年発売|ポケモンもテトリスも遊べた
+  - text: 電池切れの恐怖と|いつも戦ってた
+    speaker: 2
+- rank: 2
+  name: ゲームボーイアドバンス
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/mediaworldkaitoriworld/cabinet/6002/4/cg60024826.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/mediaworldkaitoriworld/60024826001/
+  boxes:
+  - text: 2001年発売|横長の画面になった
+  - text: 暗いところだと|画面が見えへん
+    speaker: 2
+- rank: 3
+  name: ニンテンドーDS
+  name_yomi: ニンテンドーディーエス
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/centerwave/cabinet/08144867/08164825/08164838/imgrc0110378376.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/centerwave/2cm-20171002-r5033/
+  boxes:
+  - text: 2004年発売|2画面とタッチペン
+  - text: 脳トレが|家族で流行った
+    speaker: 2
+- rank: 4
+  name: PSP
+  name_yomi: ピーエスピー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/centerwave/cabinet/08144867/08164786/08164792/imgrc0110378398.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/centerwave/r075/
+  boxes:
+  - text: 2004年発売|モンハンで集まって狩り
+  - text: 教室のすみで|協力プレイ
+    speaker: 2
+- rank: 5
+  name: ニンテンドー3DS
+  name_yomi: ニンテンドースリーディーエス
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/centerwave/cabinet/08144867/08164825/08164838/imgrc0132713416.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/centerwave/3cm-20170921-r4119/
+  boxes:
+  - text: 2011年発売|メガネなしで立体に見える
+  - text: すれちがい通信で|街を歩き回った
+    speaker: 2
+- type: ending
+  lines:
+  - いちばん遊んだのは
+  - どれ？
+  - コメントで！
+  narration: いちばん遊んだのはどれ？コメントで教えてね！
+hashtags:
+- '#平成'
+- '#携帯ゲーム機'
+- '#懐かしい'
+- '#ゲームボーイ'
+- '#DS'

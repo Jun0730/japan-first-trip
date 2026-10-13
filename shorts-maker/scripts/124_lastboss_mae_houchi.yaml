@@ -1,0 +1,65 @@
+# ラスボス直前で放置しがちなゲームあるあるTOP5
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: ラスボス直前で放置しがちなゲームあるあるTOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: ラスボス直前で
+    style: white
+  - text: 放置しがちな
+    style: red
+  - text: ゲームあるある
+    style: red
+  - text: TOP5
+    style: yellow
+  narration: ラスボス直前で放置しがちな、ゲームあるある、トップファイブ！
+- rank: 5
+  name: 最強装備を集めだす
+  boxes:
+  - text: ラスボスの前に|寄り道で装備集め
+  - text: 気づいたら|やり込みに夢中
+    speaker: 2
+- rank: 4
+  name: レベルを上げすぎる
+  boxes:
+  - text: 負けたくなくて|レベルを上げすぎる
+  - text: ラスボスが|弱く感じる
+    speaker: 2
+- rank: 3
+  name: 終わるのが寂しい
+  boxes:
+  - text: クリアしたら|この世界とお別れ
+  - text: エンディングを|見たくない
+    speaker: 2
+- rank: 2
+  name: 次のゲームを買う
+  boxes:
+  - text: 新作が出て|そっちを始めてしまう
+  - text: 積みゲーが|また1本
+    speaker: 2
+- rank: 1
+  name: 操作を忘れる
+  boxes:
+  - text: しばらく空けたら|操作も話も忘れる
+  - text: そして最初から|やり直す
+    speaker: 2
+- type: ending
+  lines:
+  - 放置してるゲーム
+  - コメントで
+  - 教えてね！
+  narration: 放置してるゲームがあったら、コメントで教えてね！
+hashtags:
+- '#ゲームあるある'
+- '#ラスボス'
+- '#積みゲー'
+- '#共感'
+- '#ゲーム'

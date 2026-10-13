@@ -1,0 +1,82 @@
+# 日本三大RPG「FF」「ドラクエ」あと1つは？候補5選
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: 日本三大RPG「FF」「ドラクエ」あと1つは？候補5選
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: '{n}、{name}'
+ranking: false
+scenes:
+- type: title
+  lines:
+  - text: 日本三大RPG
+    style: white
+  - text: FF・ドラクエ
+    style: red
+  - text: あと1つは？
+    style: red
+  - text: 候補5選
+    style: yellow
+  narration: 日本三大アールピージー、エフエフ、ドラクエ、あと1つは？候補、五選！
+- rank: 1
+  name: ポケットモンスター
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0542/4902370550542.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/17247719/
+  boxes:
+  - text: 世界でいちばん売れている|RPGシリーズ
+    yomi: 世界でいちばん売れている、アールピージーシリーズ
+  - text: RPGって言われると|ちょっと迷う
+    yomi: アールピージーって言われると、ちょっと迷う
+    speaker: 2
+- rank: 2
+  name: テイルズ オブ シリーズ
+  name_yomi: テイルズオブシリーズ
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/6224/4573685176224.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18530582/
+  boxes:
+  - text: 1995年から続く|アクションバトルのRPG
+    yomi: 1995年から続く、アクションバトルのアールピージー
+  - text: スキットが|好きな人多いはず
+    speaker: 2
+- rank: 3
+  name: ペルソナ
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/outletplaza/cabinet/111/4984995905648.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/outletplaza/40000984799/
+  boxes:
+  - text: 女神転生から生まれた|学園RPG
+    yomi: 女神転生から生まれた、学園アールピージー
+  - text: 最近の勢いなら|これかも
+    speaker: 2
+- rank: 4
+  name: 聖剣伝説
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/renet20/cabinet/zisya35/0013962678.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/renet20/r0013962678/
+  boxes:
+  - text: 1991年から続く|アクションRPG
+    yomi: 1991年から続く、アクションアールピージー
+  - text: 2の3人プレイが|最高やった
+    speaker: 2
+- rank: 5
+  name: MOTHER
+  name_yomi: マザー
+  boxes:
+  - text: 糸井重里さんが手がけた|RPG
+    yomi: 糸井重里さんが手がけた、アールピージー
+  - text: 3から20年|新作を待ってる
+    speaker: 2
+- type: ending
+  lines:
+  - みんなの答えは
+  - コメントで
+  - 教えてね！
+  narration: みんなの答えは、コメントで教えてね！
+hashtags:
+- '#RPG'
+- '#FF'
+- '#ドラクエ'
+- '#ポケモン'
+- '#ペルソナ'

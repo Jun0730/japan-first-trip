@@ -1,0 +1,74 @@
+# 新作なのにいきなり大ヒットした新規IPゲームTOP5
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: 新作なのにいきなり大ヒットした新規IPゲームTOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: 新作なのに
+    style: white
+  - text: いきなり
+    style: red
+  - text: 大ヒットした
+    style: red
+  - text: 新規IPゲーム
+    style: white
+  - text: TOP5
+    style: yellow
+  narration: 新作なのにいきなり大ヒットした、新規アイピーのゲーム、トップファイブ！
+- rank: 5
+  name: スプラトゥーン
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0337/4902370550337.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/17134614/
+  boxes:
+  - text: 2015年に任天堂が出した|新しいシューティング
+  - text: イカがインクで戦う|発想がすごい
+    speaker: 2
+- rank: 4
+  name: 原神
+  name_yomi: げんしん
+  boxes:
+  - text: 2020年配信の|基本無料オープンワールド
+  - text: スマホでもPS5でも|遊べる
+    yomi: スマホでもプレイステーションファイブでも、遊べる
+    speaker: 2
+- rank: 3
+  name: エルデンリング
+  name_yomi: エルデンリング
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0322/4949776471033.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/jism/4949776471033-54-71482-n/
+  boxes:
+  - text: 2022年発売の|フロム・ソフトウェアの新作
+  - text: 難しいのに|世界中で大ヒット
+    speaker: 2
+- rank: 2
+  name: パルワールド
+  boxes:
+  - text: 2024年に早期アクセス開始|モンスターと暮らすサバイバル
+  - text: 発売直後から|世界中で話題
+    speaker: 2
+- rank: 1
+  name: エーペックスレジェンズ
+  boxes:
+  - text: 発表と同時に|いきなり配信開始
+  - text: 1週間で|2500万人が遊んだ
+    speaker: 2
+- type: ending
+  lines:
+  - みんなが驚いたのは
+  - どれ？
+  - コメントで！
+  narration: みんなが驚いたのはどれ？コメントで教えてね！
+hashtags:
+- '#ゲーム雑学'
+- '#大ヒット'
+- '#新規IP'
+- '#ランキング'
+- '#ゲーム'

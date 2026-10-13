@@ -1,0 +1,86 @@
+# 【人生溶ける】やり込みが終わらないSwitchゲームTOP5
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: 【人生溶ける】やり込みが終わらないSwitchゲームTOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: 【人生溶ける】
+    style: yellow
+  - text: やり込みが
+    style: white
+  - text: 終わらない
+    style: red
+  - text: Switchゲーム
+    style: red
+  - text: TOP5
+    style: yellow
+  narration: 人生が溶ける！やり込みが終わらないスイッチのゲーム、トップファイブ！
+  images:
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0337/4902370550337.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/5603/4976219135603.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/5319/4902370545319.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3321/4902370553321.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/4113/4549576094113_1_2.jpg?_ex=600x600
+- rank: 5
+  name: スプラトゥーン3
+  name_yomi: スプラトゥーン3
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0337/4902370550337.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/17134614/
+  boxes:
+  - text: バトルにサーモンラン|遊び方がとにかく多い
+  - text: あと1回だけ…が|朝まで続くやつ
+    speaker: 2
+- rank: 4
+  name: モンハンライズ＋サンブレイク
+  name_yomi: モンハンライズ プラス サンブレイク
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/5603/4976219135603.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18435392/
+  boxes:
+  - text: モンスターを狩って装備を作る|くり返しがクセになる
+  - text: 欲しい素材が|出ないのも醍醐味
+    speaker: 2
+- rank: 3
+  name: あつまれ どうぶつの森
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/5319/4902370545319.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/16220456/
+  boxes:
+  - text: 島を自由に作り変えて|自分だけの島にできる
+  - text: 気づいたら|毎日ログインしてる
+    speaker: 2
+- rank: 2
+  name: ゼルダの伝説 ティアキン
+  name_yomi: ゼルダの伝説 ティアーズ オブ ザ キングダム
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3321/4902370553321.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18223361/
+  boxes:
+  - text: 空・地上・地底まで|広い世界を冒険できる
+  - text: 寄り道してたら|本編が進まへん
+    speaker: 2
+- rank: 1
+  name: マインクラフト
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/4113/4549576094113_1_2.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/15489374/
+  boxes:
+  - text: 世界でいちばん売れたゲーム|3億本以上
+  - text: 作りたいものが|永遠に終わらん
+    speaker: 2
+- type: ending
+  lines:
+  - ソフトは
+  - プロフィールの
+  - リンクから！
+  narration: ソフトはプロフィールのリンクからどうぞ！
+hashtags:
+- '#Switch'
+- '#やり込み'
+- '#神ゲー'
+- '#おすすめゲーム'
+- '#ランキング'

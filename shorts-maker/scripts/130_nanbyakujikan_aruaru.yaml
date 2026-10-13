@@ -1,0 +1,69 @@
+# ゲームに何百時間も溶かした人だけが分かるあるあるTOP5
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: ゲームに何百時間も溶かした人だけが分かるあるあるTOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: 何百時間も
+    style: white
+  - text: ゲームに溶かした
+    style: red
+  - text: 人だけが分かる
+    style: white
+  - text: あるある
+    style: red
+  - text: TOP5
+    style: yellow
+  narration: ゲームに何百時間も溶かした人だけが分かる、あるある、トップファイブ！
+- rank: 5
+  name: プレイ時間に絶句
+  boxes:
+  - text: セーブ画面の|プレイ時間を見て固まる
+  - text: 人生の何日分|やねん
+    speaker: 2
+- rank: 4
+  name: ゲームの曲を口ずさむ
+  boxes:
+  - text: 日常でゲームの曲が|頭から離れない
+  - text: お風呂で|フィールドの曲
+    speaker: 2
+- rank: 3
+  name: 現実でアイテム探し
+  boxes:
+  - text: 道に落ちてるものが|気になってしまう
+  - text: 草むらを見ると|何か出そう
+    speaker: 2
+- rank: 2
+  name: 寝る前の1回
+  name_yomi: 寝る前の1回
+  boxes:
+  - text: 寝る前の1回が|いつまでも終わらない
+  - text: 朝日を見て|後悔する
+    speaker: 2
+- rank: 1
+  name: すぐ2周目
+  name_yomi: すぐ2周目
+  boxes:
+  - text: クリアしたのに|すぐ最初から始める
+  - text: 結局また|何百時間
+    speaker: 2
+- type: ending
+  lines:
+  - 当てはまった人は
+  - コメントで
+  - 教えてね！
+  narration: 当てはまった人は、コメントで教えてね！
+hashtags:
+- '#ゲームあるある'
+- '#ゲーマー'
+- '#共感'
+- '#ランキング'
+- '#ゲーム'

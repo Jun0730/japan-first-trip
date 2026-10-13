@@ -1,0 +1,77 @@
+# 実はほとんど喋らない有名ゲーム主人公TOP5
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: 実はほとんど喋らない有名ゲーム主人公TOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: 実は
+    style: white
+  - text: ほとんど喋らない
+    style: red
+  - text: 有名ゲーム
+    style: white
+  - text: 主人公
+    style: red
+  - text: TOP5
+    style: yellow
+  narration: 実はほとんど喋らない、有名ゲームの主人公、トップファイブ！
+- rank: 5
+  name: ゴードン・フリーマン
+  name_yomi: ゴードンフリーマン
+  boxes:
+  - text: ハーフライフの主人公|シリーズを通して喋らない
+  - text: 物理学者やのに|バールで戦う
+    speaker: 2
+- rank: 4
+  name: ポケモンの主人公
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0542/4902370550542.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/17247719/
+  boxes:
+  - text: 旅のあいだ|自分からはほとんど話さない
+  - text: 返事はいつも|はい か いいえ
+    speaker: 2
+- rank: 3
+  name: ドラクエの主人公
+  name_yomi: ドラクエの主人公
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/2188/4988601012188.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18657658/
+  boxes:
+  - text: プレイヤーが自分を|重ねられるように喋らない
+  - text: 心の中では|いろいろ思ってるはず
+    speaker: 2
+- rank: 2
+  name: リンク
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3321/4902370553321.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18223361/
+  boxes:
+  - text: 掛け声は出すけど|セリフはほぼない
+  - text: ゼルダって|呼ばれがち
+    speaker: 2
+- rank: 1
+  name: マリオ
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/4113/4902370554113_1_3.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18515138/
+  boxes:
+  - text: 声は出すけど|会話はほとんどしない
+  - text: ワンダーでは|花のほうがよく喋る
+    speaker: 2
+- type: ending
+  lines:
+  - 気づいてた人は
+  - コメントで
+  - 教えてね！
+  narration: 気づいてた人は、コメントで教えてね！
+hashtags:
+- '#ゲーム雑学'
+- '#主人公'
+- '#トリビア'
+- '#ランキング'
+- '#ゲーム'

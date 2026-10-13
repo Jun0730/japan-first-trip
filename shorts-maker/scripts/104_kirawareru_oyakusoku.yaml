@@ -1,0 +1,67 @@
+# もうやめて…プレイヤーに嫌われがちなゲームのお約束TOP5
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: もうやめて…プレイヤーに嫌われがちなゲームのお約束TOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: もうやめて…
+    style: white
+  - text: プレイヤーに
+    style: white
+  - text: 嫌われがちな
+    style: red
+  - text: ゲームのお約束
+    style: red
+  - text: TOP5
+    style: yellow
+  narration: もうやめて…プレイヤーに嫌われがちなゲームのお約束、トップファイブ！
+- rank: 5
+  name: 長すぎるチュートリアル
+  boxes:
+  - text: ボタンの押し方まで|全部説明してくる
+  - text: 早く自由に|遊ばせてほしい
+    speaker: 2
+- rank: 4
+  name: 強制ステルス
+  boxes:
+  - text: 見つかったら即やり直しの|隠れて進むステージ
+  - text: アクションやのに|急にかくれんぼ
+    speaker: 2
+- rank: 3
+  name: 護衛ミッション
+  boxes:
+  - text: 勝手に敵に突っ込む|仲間を守るミッション
+  - text: お願いやから|じっとしてて
+    speaker: 2
+- rank: 2
+  name: 飛ばせないムービー
+  boxes:
+  - text: やり直すたびに|同じムービーを見せられる
+  - text: セリフ|覚えてもうた
+    speaker: 2
+- rank: 1
+  name: 取り返しのつかない要素
+  boxes:
+  - text: あとから取りに戻れない|アイテムや仲間
+  - text: 攻略サイト見ないと|怖くて進めへん
+    speaker: 2
+- type: ending
+  lines:
+  - みんなの1位は
+  - コメントで
+  - 教えてね！
+  narration: みんなの1位は、コメントで教えてね！
+hashtags:
+- '#ゲームあるある'
+- '#ゲーム'
+- '#共感'
+- '#ランキング'
+- '#ゲーマー'

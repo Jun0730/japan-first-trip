@@ -1,0 +1,77 @@
+# 2周目からが本番のゲームTOP5
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: 2周目からが本番のゲームTOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: 2周目からが
+    style: white
+  - text: 本番の
+    style: red
+  - text: ゲーム
+    style: red
+  - text: TOP5
+    style: yellow
+  narration: 2周目からが本番のゲーム、トップファイブ！
+- rank: 5
+  name: ペルソナ5 ザ・ロイヤル
+  name_yomi: ペルソナファイブ ザ ロイヤル
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/outletplaza/cabinet/111/4984995905648.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/outletplaza/40000984799/
+  boxes:
+  - text: 2周目はステータスを|引き継いで始められる
+  - text: 1周目で行けんかった|ところも回収
+    speaker: 2
+- rank: 4
+  name: エルデンリング
+  name_yomi: エルデンリング
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0322/4949776471033.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/jism/4949776471033-54-71482-n/
+  boxes:
+  - text: 2周目は敵が強くなるけど|育てたキャラで挑める
+  - text: 別のエンディングも|見に行ける
+    speaker: 2
+- rank: 3
+  name: アンダーテール
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/rdownload/cabinet/thumbs/800000079/3/801950083_p.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/rdownload/802586152/
+  boxes:
+  - text: 選んだ行動で|物語が大きく変わる
+  - text: 2周目でゲームに|覚えられてて震える
+    speaker: 2
+- rank: 2
+  name: クロノ・トリガー
+  name_yomi: クロノトリガー
+  boxes:
+  - text: 強くてニューゲームが|話題になったRPG
+    yomi: 強くてニューゲームが、話題になったアールピージー
+  - text: エンディングが|10種類以上
+    speaker: 2
+- rank: 1
+  name: ニーア オートマタ
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/aitokushop/cabinet/onesell035/ai6f13e6e49f.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/aitokushop/ai6f13e6e49f/
+  boxes:
+  - text: 1周目のクリアは|物語のほんの入り口
+  - text: 2周目は別のキャラ視点で|まったく違って見える
+    speaker: 2
+- type: ending
+  lines:
+  - 2周目で驚いた
+  - ゲームは
+  - コメントで！
+  narration: 2周目で驚いたゲームは、コメントで教えてね！
+hashtags:
+- '#神ゲー'
+- '#周回'
+- '#ゲーム'
+- '#ランキング'
+- '#おすすめゲーム'

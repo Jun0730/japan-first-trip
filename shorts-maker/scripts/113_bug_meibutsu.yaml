@@ -1,0 +1,78 @@
+# ミスから生まれた！バグが名物になったゲーム要素TOP5
+# 2026-10-13 作成。競合チャンネル（クロのゲーム情報局・ゲームっていいな）の伸びている型を参考にした30本のうちの1本
+# 情報は 2026-10-13 時点。2025年以降の情報は公式・ファミ通・4Gamer などで確認済み
+
+title: ミスから生まれた！バグが名物になったゲーム要素TOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: ミスから生まれた！
+    style: white
+  - text: バグが
+    style: red
+  - text: 名物になった
+    style: red
+  - text: ゲーム要素
+    style: white
+  - text: TOP5
+    style: yellow
+  narration: ミスから生まれた！バグが名物になったゲーム要素、トップファイブ！
+- rank: 5
+  name: ポケモンの けつばん
+  name_yomi: ポケモンのけつばん
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/centerwave/cabinet/nintendo/nintendo_soft/11618.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/centerwave/11618/
+  boxes:
+  - text: データの抜けた|バグのポケモン
+  - text: 小学生の間で|うわさが広まった
+    speaker: 2
+- rank: 4
+  name: インベーダーの加速
+  name_yomi: インベーダーの加速
+  boxes:
+  - text: 敵が減るほど|動きが速くなる
+  - text: それがむしろ|面白さになった
+    speaker: 2
+- rank: 3
+  name: スト2のキャンセル
+  name_yomi: ストツーのキャンセル
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/4010/4976219124010.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/17348834/
+  boxes:
+  - text: 技を途中で止めて|次の技につなげられた
+  - text: これが今の|コンボの元祖
+    speaker: 2
+- rank: 2
+  name: マイクラのクリーパー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/4113/4549576094113_1_2.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/15489374/
+  boxes:
+  - text: ブタを作ろうとして|サイズを間違えた
+  - text: 今やマイクラの|顔になった
+    speaker: 2
+- rank: 1
+  name: スカイリムの巨人
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/geoonline1/cabinet/1102/5151102-01.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/geoonline1/515110202/
+  boxes:
+  - text: 巨人に叩かれると|空のかなたへ飛んでいく
+  - text: 面白いから|あえて残したらしい
+    speaker: 2
+- type: ending
+  lines:
+  - 他にも知ってたら
+  - コメントで
+  - 教えてね！
+  narration: 他にも知ってたら、コメントで教えてね！
+hashtags:
+- '#ゲーム雑学'
+- '#バグ'
+- '#トリビア'
+- '#ランキング'
+- '#ゲーム'
