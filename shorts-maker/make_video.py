@@ -599,19 +599,21 @@ def affiliate_link(link, script):
 
 
 def write_caption(script, out_txt):
-    lines = [script["title"], "", "※本動画はアフィリエイト広告（PR）を含みます", ""]
-    # ショートの概要欄のリンクは押せないので、商品一覧（楽天ROOM など）への案内を先頭に書く
-    if script.get("shop_url"):
-        lines += [script.get("shop_guide", "▼紹介した商品はプロフィールのリンクから見られます"),
-                  script["shop_url"], ""]
-    ranked = sorted([s for s in script["scenes"] if s.get("rank")], key=lambda s: s["rank"])
+    """概要欄に貼る文。リンクのある商品だけを載せる。商品を紹介しない動画では PR 表記や商品の欄を出さない。"""
+    ranked = sorted([s for s in script["scenes"] if s.get("rank") and s.get("link")], key=lambda s: s["rank"])
+    lines = [script["title"], ""]
     if ranked:
+        lines += ["※本動画はアフィリエイト広告（PR）を含みます", ""]
+        # ショートの概要欄のリンクは押せないので、商品一覧（楽天ROOM など）への案内を先頭に書く
+        if script.get("shop_url"):
+            lines += [script.get("shop_guide", "▼紹介した商品はプロフィールのリンクから見られます"),
+                      script["shop_url"], ""]
         lines.append("▼紹介した商品")
         for s in ranked:
             # ranking: false の台本（発売日順など）は「1位」ではなく「1.」にする
             mark = f"{s['rank']}位" if script.get("ranking", True) else f"{s['rank']}."
             lines.append(f"{mark} {s['name'].replace('|', ' ')}")
-            lines.append(f"  {affiliate_link(s.get('link'), script) or '（リンクをここに貼る）'}")
+            lines.append(f"  {affiliate_link(s['link'], script)}")
         lines.append("")
     for key in ("credit", "bgm_credit"):
         if script.get(key):
