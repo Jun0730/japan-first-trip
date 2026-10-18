@@ -5,10 +5,10 @@ on:
   workflow_dispatch:
     inputs:
       script:
-        description: "作る台本（例: shorts-maker/scripts/001_switch2_accessories.yaml）。空なら全部作る"
+        description: "作る台本（例: shorts-maker/scripts/001_switch2_accessories.yaml）。空白区切りで複数可。空なら全部作る"
         required: false
         default: ""
-  # 台本・画像・BGMを更新してコミットしたら自動で作る
+  # 台本・画像・BGMを更新してコミットしたら自動で作る（変わった台本だけ）
   push:
     paths:
       - "shorts-maker/**"
@@ -17,7 +17,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # 「Run workflow」で全部作ると30本以上になるので長めにしておく
+    timeout-minutes: 120
     services:
       voicevox:
         image: voicevox/voicevox_engine:cpu-latest
@@ -25,6 +26,9 @@ jobs:
           - 50021:50021
     steps:
       - uses: actions/checkout@v4
+        with:
+          # push の前後を比べて、変わった台本を探すため
+          fetch-depth: 0
 
       - name: ffmpeg と日本語フォントを入れる
         run: |
@@ -54,7 +58,20 @@ jobs:
           RAKUTEN_ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
           RAKUTEN_AFFILIATE_ID: ${{ secrets.RAKUTEN_AFFILIATE_ID }}
           RAKUTEN_ORIGIN: ${{ secrets.RAKUTEN_ORIGIN }}
-        run: python shorts-maker/make_video.py ${SCRIPT:-shorts-maker/scripts/*.yaml} --out out
+          BEFORE: ${{ github.event.before }}
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            # push の時は、追加・変更された台本だけを作る
+            if git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+              SCRIPT=$(git diff --name-only --diff-filter=AMR "$BEFORE" "$GITHUB_SHA" -- 'shorts-maker/scripts/*.yaml' | tr '\n' ' ')
+            fi
+            # 台本が変わっていない（プログラムやBGMだけ変えた）時は、確認用に一番新しい台本を1本だけ作る
+            if [ -z "$SCRIPT" ]; then
+              SCRIPT=$(ls shorts-maker/scripts/*.yaml | sort | tail -1)
+            fi
+          fi
+          echo "作る台本: ${SCRIPT:-全部}"
+          python shorts-maker/make_video.py ${SCRIPT:-shorts-maker/scripts/*.yaml} --out out
 
       - name: 完成した動画をダウンロードできるようにする
         uses: actions/upload-artifact@v4
