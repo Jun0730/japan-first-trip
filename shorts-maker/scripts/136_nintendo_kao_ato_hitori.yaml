@@ -1,0 +1,78 @@
+# 任天堂の顔「マリオ」「ピカチュウ」あと1人は？候補5選
+# 2026-10-28 作成。31〜40本目（10/18〜10/27 の数字を見て決めた型: answer）
+# 情報は 2026-10-28 時点（11月の発売日はファミ通の発売スケジュールで確認）
+
+title: 任天堂の顔「マリオ」「ピカチュウ」あと1人は？候補5選
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: '{n}、{name}'
+ranking: false
+scenes:
+- type: title
+  lines:
+  - text: 任天堂の顔
+    style: white
+  - text: マリオ・ピカチュウ
+    style: red
+  - text: あと1人は？
+    style: red
+  - text: 候補5選
+    style: yellow
+  narration: 任天堂の顔、マリオ、ピカチュウ、あと1人は？候補、五選！
+- rank: 1
+  name: リンク
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3321/4902370553321.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18223361/
+  boxes:
+  - text: ゼルダの伝説の|主人公
+  - text: 名前をゼルダと|間違えられがち
+    speaker: 2
+- rank: 2
+  name: カービィ
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3383/4902370553383.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18223363/
+  boxes:
+  - text: 1992年デビューの|ピンクの丸
+    yomi: 1992年デビューの、ピンクの丸
+  - text: なんでも吸い込む|最強の食いしん坊
+    speaker: 2
+- rank: 3
+  name: ドンキーコング
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3413/4902370553413_1_5.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18210510/
+  boxes:
+  - text: マリオのデビュー作の|タイトルになったゴリラ
+  - text: タルを投げてくる|元祖ライバル
+    speaker: 2
+- rank: 4
+  name: ヨッシー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/2400/4902370542400.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/15773420/
+  boxes:
+  - text: 1990年の|スーパーマリオワールドで登場
+    yomi: 1990年の、スーパーマリオワールドで登場
+  - text: 鳴き声が|かわいすぎる
+    speaker: 2
+- rank: 5
+  name: サムス
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3697/4902370553697.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18379503/
+  boxes:
+  - text: メトロイドの|主人公
+  - text: 正体を知って|驚いた人も多い
+    speaker: 2
+- type: ending
+  lines:
+  - みんなの答えは
+  - コメントで
+  - 教えてね！
+  narration: みんなの答えは、コメントで教えてね！
+hashtags:
+- '#任天堂'
+- '#マリオ'
+- '#ピカチュウ'
+- '#カービィ'
+- '#ゼルダの伝説'

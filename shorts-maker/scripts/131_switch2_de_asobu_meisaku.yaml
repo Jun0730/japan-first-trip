@@ -1,0 +1,86 @@
+# Switch2で今こそ遊ぶべき初代Switchの名作TOP5
+# 2026-10-28 作成。31〜40本目（10/18〜10/27 の数字を見て決めた型: search）
+# 情報は 2026-10-28 時点（11月の発売日はファミ通の発売スケジュールで確認）
+
+title: Switch2で今こそ遊ぶべき初代Switchの名作TOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: Switch2で
+    style: white
+  - text: 今こそ遊ぶべき
+    style: red
+  - text: 初代Switchの名作
+    style: yellow
+  - text: TOP5
+    style: yellow
+  narration: スイッチツーで今こそ遊ぶべき、初代スイッチの名作トップファイブ！
+  images:
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3901/4902370553901.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/6485/4902370536485_1_3.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/7789/4902370537789_1_3.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0734/4902370540734_1_3.jpg?_ex=600x600
+- rank: 5
+  name: あつまれ どうぶつの森
+  name_yomi: あつまれどうぶつのもり
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3901/4902370553901.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18434382/
+  boxes:
+  - text: 島づくりが|ずっと終わらない
+  - text: 気づいたら|朝になってる
+    speaker: 2
+- rank: 4
+  name: マリオカート8 デラックス
+  name_yomi: マリオカートエイト デラックス
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/6485/4902370536485_1_3.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/14647239/
+  boxes:
+  - text: Switchでいちばん|売れたソフト
+    yomi: スイッチでいちばん、売れたソフト
+  - text: ワールドと|どっちも欲しい
+    speaker: 2
+- rank: 3
+  name: スーパーマリオ オデッセイ
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/7789/4902370537789_1_3.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/15127511/
+  boxes:
+  - text: 帽子を投げて|敵に乗り移る3Dマリオ
+    yomi: 帽子を投げて、敵に乗り移るスリーディーマリオ
+  - text: ステージが多くて|お得すぎる
+    speaker: 2
+- rank: 2
+  name: 大乱闘スマッシュブラザーズ SPECIAL
+  name_yomi: 大乱闘スマッシュブラザーズ スペシャル
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0734/4902370540734_1_3.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/15555196/
+  boxes:
+  - text: シリーズの全ファイターが|参戦
+  - text: 友達が来たら|まずこれ
+    speaker: 2
+- rank: 1
+  name: ゼルダの伝説 ブレス オブ ザ ワイルド
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3291/4902370553291.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18223360/
+  boxes:
+  - text: Switch2 Editionで|画質がパワーアップ
+    yomi: スイッチツー エディションで、画質がパワーアップ
+  - text: 初めての冒険は|一生の思い出
+    speaker: 2
+- type: ending
+  lines:
+  - ゲームは
+  - プロフィールから
+  - 登録もしてね！
+  narration: 紹介したゲームはプロフィールのリンクから。チャンネル登録もしてね！
+hashtags:
+- '#Switch2'
+- '#スイッチ2'
+- '#おすすめソフト'
+- '#神ゲー'
+- '#ランキング'

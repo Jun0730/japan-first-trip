@@ -1,0 +1,87 @@
+# Switch2を買ったら最初にやること5選
+# 2026-10-28 作成。31〜40本目（10/18〜10/27 の数字を見て決めた型: search）
+# 情報は 2026-10-28 時点（11月の発売日はファミ通の発売スケジュールで確認）
+
+title: Switch2を買ったら最初にやること5選
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: '{n}、{name}'
+ranking: false
+scenes:
+- type: title
+  lines:
+  - text: Switch2を
+    style: white
+  - text: 買ったら
+    style: white
+  - text: 最初にやること
+    style: red
+  - text: 5選
+    style: yellow
+  narration: スイッチツーを買ったら、最初にやること、五選！
+  images:
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/mobile123/cabinet/bellemond/b15/hobf-swi2_001_gclv5.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0670/8806095700670.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/rdownload/cabinet/thumbs/800000079/6/801951106_p.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/2843/4902370552843.jpg?_ex=600x600
+- rank: 1
+  name: データの引っ越し
+  name_yomi: データのひっこし
+  boxes:
+  - text: 初代Switchのセーブデータを|まるごと移せる
+    yomi: 初代スイッチのセーブデータを、まるごと移せる
+  - text: 本体を並べて|待つだけ
+    speaker: 2
+- rank: 2
+  name: 保護フィルムを貼る
+  name_yomi: ほごフィルムをはる
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/mobile123/cabinet/bellemond/b15/hobf-swi2_001_gclv5.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/mobile123/b1504hobf/
+  boxes:
+  - text: 画面が大きくなった分|傷も目立つ
+  - text: 最初に貼るのが|いちばん楽
+    speaker: 2
+- rank: 3
+  name: microSD Expressを用意
+  name_yomi: マイクロエスディー エクスプレスをよういする
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0670/8806095700670.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18210485/
+  boxes:
+  - text: Switch2のソフトは|Express対応カードに保存
+    yomi: スイッチツーのソフトは、エクスプレス対応カードに保存
+  - text: 本体の256GBは|すぐ埋まる
+    yomi: 本体のにひゃくごじゅうろくギガは、すぐ埋まる
+    speaker: 2
+- rank: 4
+  name: Switch Onlineに入る
+  name_yomi: スイッチオンラインにはいる
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/rdownload/cabinet/thumbs/800000079/6/801951106_p.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/rdownload/802587996/
+  boxes:
+  - text: オンラインで遊ぶには|加入が必要
+  - text: 昔のゲームも|遊べる
+    speaker: 2
+- rank: 5
+  name: Proコントローラー
+  name_yomi: プロコントローラー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/2843/4902370552843.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18210484/
+  boxes:
+  - text: 長く遊ぶなら|持ちやすさが段違い
+  - text: 背面ボタンが|地味に便利
+    speaker: 2
+- type: ending
+  lines:
+  - 商品は
+  - プロフィールから
+  - 登録もしてね！
+  narration: 紹介した商品はプロフィールのリンクから。チャンネル登録もしてね！
+hashtags:
+- '#Switch2'
+- '#スイッチ2'
+- '#初期設定'
+- '#周辺機器'
+- '#買ってよかった'
