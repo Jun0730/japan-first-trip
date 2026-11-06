@@ -1,0 +1,85 @@
+# クリスマスに贈りたいSwitch2で遊べるソフト5選
+# 2026-11-06 作成。41〜50本目（11/2 の分析と 11/6 の競合分析で決めた型: kaidoki）
+# 情報は 2026-11-06 時点（売上は任天堂 IR の 2026年9月末時点の数字）
+
+title: クリスマスに贈りたいSwitch2で遊べるソフト5選
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: '{n}、{name}'
+ranking: false
+scenes:
+- type: title
+  lines:
+  - text: クリスマスに
+    style: white
+  - text: 贈りたい
+    style: red
+  - text: Switch2ソフト
+    style: yellow
+  - text: 5選
+    style: yellow
+  narration: クリスマスに贈りたい、スイッチツーで遊べるソフト、五選！
+  images:
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3260/4902370553260_1_4.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3352/4902370553352_1_3.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0420/4521329460420_1_5.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3642/4902370553642.jpg?_ex=600x600
+- rank: 1
+  name: マリオカート ワールド
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3260/4902370553260_1_4.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18210489/
+  boxes:
+  - text: みんなで遊べる|定番中の定番
+  - text: 迷ったら|これ
+    speaker: 2
+- rank: 2
+  name: マリオパーティ|ジャンボリー
+  name_yomi: マリオパーティ ジャンボリー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3352/4902370553352_1_3.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18223362/
+  boxes:
+  - text: 家族でワイワイ|ミニゲーム
+  - text: Switch2版は|カメラやマイクでも遊べる
+    yomi: スイッチツー版は、カメラやマイクでも遊べる
+    speaker: 2
+- rank: 3
+  name: ぽこ あ ポケモン
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0420/4521329460420_1_5.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18437525/
+  boxes:
+  - text: メタモンになって|のんびり街づくり
+  - text: ポケモン好きの|子どもに
+    speaker: 2
+- rank: 4
+  name: カービィのエアライダー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3642/4902370553642.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18349314/
+  boxes:
+  - text: カービィたちの|レースアクション
+  - text: ボタンが少なくて|子どもも遊べる
+    speaker: 2
+- rank: 5
+  name: スーパーマリオギャラクシー|1＋2
+  name_yomi: スーパーマリオギャラクシー ワン プラス ツー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3611/4902370553611_1_3.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18379502/
+  boxes:
+  - text: 名作3Dマリオ2本が|1本に
+    yomi: 名作スリーディーマリオ2本が、1本に
+  - text: 大人へのプレゼントにも|ぴったり
+    speaker: 2
+- type: ending
+  lines:
+  - ゲームは
+  - プロフィールから
+  - 登録もしてね！
+  narration: 紹介したゲームはプロフィールのリンクから。チャンネル登録もしてね！
+hashtags:
+- '#クリスマス'
+- '#プレゼント'
+- '#Switch2'
+- '#スイッチ2'
+- '#おすすめソフト'

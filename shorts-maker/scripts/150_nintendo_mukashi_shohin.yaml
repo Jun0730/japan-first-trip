@@ -1,0 +1,74 @@
+# ゲームの前に任天堂が作っていた意外な商品TOP5
+# 2026-11-06 作成。41〜50本目（11/2 の分析と 11/6 の競合分析で決めた型: zatsugaku）
+# 情報は 2026-11-06 時点（売上は任天堂 IR の 2026年9月末時点の数字）
+
+title: ゲームの前に任天堂が作っていた意外な商品TOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: ゲームの前に
+    style: white
+  - text: 任天堂が作っていた
+    style: white
+  - text: 意外な商品
+    style: red
+  - text: TOP5
+    style: yellow
+  narration: ゲームの前に任天堂が作っていた、意外な商品、トップファイブ！
+- rank: 5
+  name: ラブテスター
+  boxes:
+  - text: 1969年発売|2人の相性をはかる
+    yomi: 1969年発売、2人の相性をはかる
+  - text: 手をつないで|電気で測る
+    speaker: 2
+- rank: 4
+  name: 光線銃SP
+  name_yomi: こうせんじゅう エスピー
+  boxes:
+  - text: 1970年発売|光で的を撃つ
+    yomi: 1970年発売、光で的を撃つ
+  - text: 光線銃は|ファミコンにも続いた
+    speaker: 2
+- rank: 3
+  name: ウルトラハンド
+  boxes:
+  - text: 1966年発売|伸びるマジックハンド
+    yomi: 1966年発売、伸びるマジックハンド
+  - text: 大ヒットして|おもちゃの任天堂に
+    speaker: 2
+- rank: 2
+  name: ディズニートランプ
+  boxes:
+  - text: 1959年発売|ディズニーのトランプ
+    yomi: 1959年発売、ディズニーのトランプ
+  - text: トランプを|家庭の遊びにした
+    speaker: 2
+- rank: 1
+  name: 花札
+  name_yomi: はなふだ
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/thinkrich/cabinet/sale2_muryou_16/s16254.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/thinkrich/j03906/
+  boxes:
+  - text: 1889年|任天堂は花札屋として誕生
+    yomi: 1889年、任天堂は花札屋として誕生
+  - text: 今も|任天堂から売られている
+    speaker: 2
+- type: ending
+  lines:
+  - 商品は
+  - プロフィールから
+  - 登録もしてね！
+  narration: 紹介した商品はプロフィールのリンクから。チャンネル登録もしてね！
+hashtags:
+- '#任天堂'
+- '#ゲーム雑学'
+- '#花札'
+- '#トリビア'
+- '#ランキング'

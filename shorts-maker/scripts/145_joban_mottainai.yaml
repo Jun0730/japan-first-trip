@@ -1,0 +1,85 @@
+# 序盤で投げるともったいない！後半から神になるゲームTOP5
+# 2026-11-06 作成。41〜50本目（11/2 の分析と 11/6 の競合分析で決めた型: gyakuhari）
+# 情報は 2026-11-06 時点（売上は任天堂 IR の 2026年9月末時点の数字）
+
+title: 序盤で投げるともったいない！後半から神になるゲームTOP5
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: 第{n}位、{name}
+scenes:
+- type: title
+  lines:
+  - text: 序盤で投げると
+    style: white
+  - text: もったいない
+    style: red
+  - text: 後半神ゲー
+    style: yellow
+  - text: TOP5
+    style: yellow
+  narration: 序盤で投げるともったいない、後半から神になるゲーム、トップファイブ！
+  images:
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/1459/4988601010771.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/noah-shopping/cabinet/default/zeruda_no_densetu_ss.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/outletplaza/cabinet/111/4984995905648.jpg?_ex=600x600
+  - https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/4410/4902370554410.jpg?_ex=600x600
+- rank: 5
+  name: ドラゴンクエストビルダーズ2
+  name_yomi: ドラゴンクエストビルダーズツー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/1459/4988601010771.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/jism/4988601010771-54-40561-n/
+  boxes:
+  - text: 最初のチュートリアルが|長め
+  - text: からっぽ島から|一気に楽しくなる
+    speaker: 2
+- rank: 4
+  name: ゼルダの伝説|スカイウォードソード HD
+  name_yomi: ゼルダの伝説 スカイウォードソード エイチディー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/noah-shopping/cabinet/default/zeruda_no_densetu_ss.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/noah-shopping/4902370547955/
+  boxes:
+  - text: 空の島での導入が|ゆっくり
+  - text: ダンジョンが|どれも名作
+    speaker: 2
+- rank: 3
+  name: ペルソナ5 ザ・ロイヤル
+  name_yomi: ペルソナファイブ ザ・ロイヤル
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/outletplaza/cabinet/111/4984995905648.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/outletplaza/40000984799/
+  boxes:
+  - text: 学校生活のパートが|長く感じる
+  - text: 怪盗団が動き出すと|止まらない
+    speaker: 2
+- rank: 2
+  name: ゼノブレイド2
+  name_yomi: ゼノブレイドツー
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/4410/4902370554410.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/18672241/
+  boxes:
+  - text: 序盤は|システムが難しい
+  - text: 後半のストーリーが|熱すぎる
+    speaker: 2
+- rank: 1
+  name: 十三機兵防衛圏
+  name_yomi: じゅうさんきへいぼうえいけん
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/hikari-kurashido/cabinet/r_2026102820/20261102091435_246_1.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/hikari-kurashido/20261102091435_246/
+  boxes:
+  - text: 最初は話が|バラバラで混乱
+  - text: 全部つながった瞬間|鳥肌
+    speaker: 2
+- type: ending
+  lines:
+  - ゲームは
+  - プロフィールから
+  - 登録もしてね！
+  narration: 紹介したゲームはプロフィールのリンクから。チャンネル登録もしてね！
+hashtags:
+- '#神ゲー'
+- '#RPG'
+- '#おすすめゲーム'
+- '#ランキング'
+- '#ゲーム'

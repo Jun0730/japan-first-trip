@@ -1,0 +1,74 @@
+# 伝説のゲーム機「ファミコン」「PS2」あと1台は？候補5選
+# 2026-11-06 作成。41〜50本目（11/2 の分析と 11/6 の競合分析で決めた型: answer）
+# 情報は 2026-11-06 時点（売上は任天堂 IR の 2026年9月末時点の数字）
+
+title: 伝説のゲーム機「ファミコン」「PS2」あと1台は？候補5選
+bgm: おどれグロッケンシュピール.mp3
+bgm_credit: BGM：おどれグロッケンシュピール / しゃろう（DOVA-SYNDROME）
+shop_url: https://room.rakuten.co.jp/room_513b438c51/items
+shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
+rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
+rank_yomi: '{n}、{name}'
+ranking: false
+scenes:
+- type: title
+  lines:
+  - text: 伝説のゲーム機
+    style: white
+  - text: ファミコン・PS2
+    style: red
+  - text: あと1台は？
+    style: red
+  - text: 候補5選
+    style: yellow
+  narration: 伝説のゲーム機、ファミコン、プレステツー、あと一台は？候補、五選！
+- rank: 1
+  name: ニンテンドーDS
+  name_yomi: ニンテンドーディーエス
+  boxes:
+  - text: 脳トレで|大人も夢中に
+  - text: 2画面とタッチペンが|新しかった
+    yomi: 2画面とタッチペンが、新しかった
+    speaker: 2
+- rank: 2
+  name: ゲームボーイ
+  boxes:
+  - text: 初代ポケモンが|生まれた
+  - text: どこでも遊べる|ゲームの始まり
+    speaker: 2
+- rank: 3
+  name: プレイステーション
+  boxes:
+  - text: 3Dゲームを|当たり前にした
+    yomi: スリーディーゲームを、当たり前にした
+  - text: FFVIIも|ここから
+    yomi: エフエフセブンも、ここから
+    speaker: 2
+- rank: 4
+  name: Wii
+  name_yomi: ウィー
+  boxes:
+  - text: リモコンを振る遊びが|世界中で大人気
+  - text: ゲームをしない人も|夢中に
+    speaker: 2
+- rank: 5
+  name: Nintendo Switch
+  name_yomi: ニンテンドースイッチ
+  image: https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/8495/4902370548495.jpg?_ex=600x600
+  link: https://item.rakuten.co.jp/book/16882955/
+  boxes:
+  - text: 任天堂で|一番売れたゲーム機
+  - text: 家でも外でも|遊べる
+    speaker: 2
+- type: ending
+  lines:
+  - 答えはコメントで！
+  - 登録も
+  - してね！
+  narration: みんなの答えはコメントで教えてね！チャンネル登録もしてね！
+hashtags:
+- '#ゲーム機'
+- '#レトロゲーム'
+- '#ファミコン'
+- '#PS2'
+- '#任天堂'
