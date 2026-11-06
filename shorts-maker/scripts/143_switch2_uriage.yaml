@@ -9,7 +9,8 @@ shop_url: https://room.rakuten.co.jp/room_513b438c51/items
 shop_guide: ▼紹介したゲームはプロフィールのリンク（楽天ROOM）から
 rakuten_affiliate_id: 57f44ad3.ff4edf6b.57f44ad4.a5ddb470
 rank_yomi: 第{n}位、{name}
-credit: 出典：任天堂 IR情報（2026年9月末時点の世界累計）
+credit: "音声：VOICEVOX:ずんだもん、VOICEVOX:四国めたん
+出典：任天堂 IR情報（2026年9月末時点の世界累計）"
 scenes:
 - type: title
   lines:

@@ -658,8 +658,8 @@ def build(script_path, out_dir, cfg):
             concat.append((frame, dur))
         thumb = thumb or frame
 
-    # クレジット: 使った声を全部書く
-    if cfg["tts"] == "voicevox" and "credit" not in script:
+    # クレジット: 使った声を全部書く。台本に出典などの credit があっても、VOICEVOX の表記は必ず入れる
+    if cfg["tts"] == "voicevox" and "VOICEVOX" not in script.get("credit", ""):
         names = voicevox_names(cfg)
         default = {cfg["speaker"]: cfg["speaker_name"]}
         chars = []
@@ -667,7 +667,8 @@ def build(script_path, out_dir, cfg):
             ch = names.get(sp) or default.get(sp) or f"話者{sp}"
             if ch not in chars:
                 chars.append(ch)
-        script["credit"] = "音声：" + "、".join(f"VOICEVOX:{c}" for c in chars)
+        voice = "音声：" + "、".join(f"VOICEVOX:{c}" for c in chars)
+        script["credit"] = voice + ("\n" + script["credit"] if script.get("credit") else "")
 
     wav_path = os.path.join(work, "voice.wav")
     with wave.open(wav_path, "wb") as w:
